@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Termini di utilizzo di Antitesi Pizzeria">
+    <title>Termini di Utilizzo | Antitesi Pizzeria</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <style>
+        :root {
+            --color-black: #0d0d0d;
+            --color-black-soft: #1a1a1a;
+            --color-bronze: #b87333;
+            --color-bronze-light: #d4956a;
+            --color-white: #f5f0e8;
+            --color-white-pure: #ffffff;
+            --color-gray: #8a8a8a;
+            --color-gray-dark: #4a4a4a;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Montserrat', -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--color-gray-dark);
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--color-white);
+        }
+
+        .logo-img {
+            width: 36px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            letter-spacing: 0.15em;
+        }
+
+        .back-link {
+            color: var(--color-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--color-white);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+        }
+
+        .last-update {
+            color: var(--color-gray);
+            font-size: 0.875rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-bronze);
+            margin: 2.5rem 0 1rem;
+        }
+
+        p {
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            color: var(--color-gray);
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--color-bronze);
+        }
+
+        a:hover {
+            color: var(--color-bronze-light);
+        }
+
+        .highlight-box {
+            background: rgba(184, 115, 51, 0.1);
+            border-left: 3px solid var(--color-bronze);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .contact-box {
+            background: var(--color-black-soft);
+            border: 1px solid var(--color-gray-dark);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <img src="assets/icons/logo.svg" alt="Antitesi" class="logo-img">
+            <span class="logo-text">ANTITESI</span>
+        </a>
+        <a href="javascript:history.back()" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Indietro
+        </a>
+    </header>
+
+    <main class="container">
+        <h1>Termini di Utilizzo</h1>
+        <p class="last-update">Ultimo aggiornamento: Gennaio 2026</p>
+
+        <p>I presenti termini regolano l'utilizzo del servizio di prenotazione online di Antitesi Pizzeria. Effettuando una prenotazione, accetti integralmente questi termini.</p>
+
+        <h2>1. Il Servizio di Prenotazione</h2>
+        <p>Il nostro sistema di prenotazione online consente di riservare un tavolo presso Antitesi Pizzeria. La prenotazione viene confermata tramite WhatsApp.</p>
+
+        <h2>2. Conferma della Prenotazione</h2>
+        <p>La prenotazione si considera confermata solo dopo aver ricevuto una risposta di conferma tramite WhatsApp da parte del ristorante. Una prenotazione non confermata non garantisce la disponibilita del tavolo.</p>
+
+        <h2>3. Orario di Arrivo</h2>
+        <div class="highlight-box">
+            <p><strong>Il tavolo sara tenuto riservato per 15 minuti</strong> dall'orario prenotato. In caso di ritardo, ti preghiamo di avvisarci telefonicamente o via WhatsApp.</p>
+        </div>
+        <p>Trascorsi 15 minuti senza comunicazione, il tavolo potra essere assegnato ad altri clienti.</p>
+
+        <h2>4. Cancellazione</h2>
+        <p>Se non puoi piu rispettare la prenotazione, ti chiediamo di:</p>
+        <ul>
+            <li>Avvisarci con almeno 2 ore di anticipo</li>
+            <li>Contattarci via telefono o WhatsApp al <a href="tel:+393408854176">+39 340 885 4176</a></li>
+        </ul>
+        <p>Le cancellazioni ripetute senza preavviso potrebbero comportare limitazioni nelle future prenotazioni.</p>
+
+        <h2>5. Numero di Persone</h2>
+        <p>Ti preghiamo di indicare il numero corretto di persone al momento della prenotazione. In caso di variazioni:</p>
+        <ul>
+            <li><strong>Aumento:</strong> contattaci per verificare la disponibilita</li>
+            <li><strong>Diminuzione:</strong> avvisaci per ottimizzare l'organizzazione</li>
+        </ul>
+        <p>Per gruppi superiori a 8 persone, e necessario contattarci telefonicamente.</p>
+
+        <h2>6. Allergie e Intolleranze</h2>
+        <p>Ti invitiamo a segnalare eventuali allergie o intolleranze alimentari al momento della prenotazione. Il nostro staff sara lieto di assisterti nella scelta dei piatti adatti.</p>
+        <div class="highlight-box">
+            <p><strong>Nota:</strong> Pur adottando ogni precauzione, non possiamo garantire l'assenza totale di contaminazioni incrociate in cucina.</p>
+        </div>
+
+        <h2>7. Animali Domestici</h2>
+        <p>Accogliamo con piacere gli animali da compagnia di piccola taglia (sotto i 10 kg). Ti chiediamo di segnalarlo nelle note della prenotazione per garantirti un tavolo adeguato.</p>
+
+        <h2>8. Bambini</h2>
+        <p>I bambini sono i benvenuti. Disponiamo di seggioloni su richiesta: indicalo nelle note della prenotazione.</p>
+
+        <h2>9. Giorni di Chiusura</h2>
+        <p>Il ristorante e chiuso il <strong>lunedi</strong>. Il calendario non consente prenotazioni nei giorni di chiusura.</p>
+        <p><strong>Orari di apertura:</strong> Martedi - Domenica, 19:30 - 00:00</p>
+
+        <h2>10. Limitazione di Responsabilita</h2>
+        <p>Antitesi Pizzeria non e responsabile per:</p>
+        <ul>
+            <li>Disservizi tecnici del sistema di prenotazione</li>
+            <li>Mancata ricezione di conferme dovuta a problemi di connessione</li>
+            <li>Errori nei dati inseriti dall'utente</li>
+        </ul>
+
+        <h2>11. Modifiche ai Termini</h2>
+        <p>Ci riserviamo il diritto di modificare questi termini in qualsiasi momento. Le modifiche saranno effettive dalla pubblicazione su questa pagina.</p>
+
+        <h2>12. Contatti</h2>
+        <p>Per qualsiasi domanda o chiarimento:</p>
+        <div class="contact-box">
+            <p><strong>Antitesi Pizzeria</strong></p>
+            <p>Via Remigio Farnetti, 21 - 00044 Frascati (RM)</p>
+            <p>Tel: <a href="tel:+393408854176">+39 340 885 4176</a></p>
+            <p>WhatsApp: <a href="https://wa.me/393408854176">+39 340 885 4176</a></p>
+        </div>
+
+        <h2>13. Legge Applicabile</h2>
+        <p>I presenti termini sono regolati dalla legge italiana. Per qualsiasi controversia sara competente il Foro di Roma.</p>
+    </main>
+</body>
+</html>

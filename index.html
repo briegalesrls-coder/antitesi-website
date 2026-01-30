@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Antitesi Pizzeria - Tradizione autentica con tocco contemporaneo nel cuore di Frascati. Prenota il tuo tavolo.">
+    <meta name="keywords" content="pizzeria, Frascati, Roma, pizza napoletana, prenotazione ristorante">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Antitesi Pizzeria | Frascati">
+    <meta property="og:description" content="Tradizione autentica con tocco contemporaneo. Prenota il tuo tavolo.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:url" content="https://www.antitesipizzeria.it">
+
+    <title>Antitesi Pizzeria | Frascati</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="assets/icons/logo.svg" alt="Antitesi" class="logo-loader">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="assets/icons/logo.svg" alt="Antitesi" class="logo-icon">
+                <span class="logo-text">ANTITESI</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="#filosofia" class="nav-link">Filosofia</a></li>
+                <li><a href="#locale" class="nav-link">Il Locale</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#pizza" class="nav-link">La Pizza</a></li>
+                <li><a href="#contatti" class="nav-link">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Stile Cinematografico -->
+    <section id="hero" class="hero">
+        <!-- Background scuro con texture sottile -->
+        <div class="hero-bg-dark"></div>
+
+        <!-- Immagine pizza con effetto cinematografico centrale -->
+        <div class="hero-pizza-cinematic">
+            <img src="assets/images/pizza-hero.jpg" alt="Pizza Antitesi" class="pizza-cinematic-img">
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="assets/icons/logo.svg" alt="Antitesi" class="logo-main">
+            </div>
+            <h1 class="hero-title">ANTITESI</h1>
+            <p class="hero-subtitle">PIZZERIA</p>
+            <p class="hero-tagline">Tradizione autentica, tocco contemporaneo</p>
+
+            <div class="hero-cta">
+                <a href="prenota.html" class="btn btn-primary">Prenota</a>
+                <a href="#menu" class="btn btn-secondary">Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofia Section -->
+    <section id="filosofia" class="section filosofia">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">La Nostra Essenza</span>
+                <h2 class="section-title">Filosofia</h2>
+            </div>
+
+            <div class="filosofia-content">
+                <div class="filosofia-text">
+                    <blockquote class="filosofia-quote">
+                        <p>"Nel cuore di Frascati, dove la tradizione incontra l'innovazione, nasce Antitesi:
+                        un'esperienza gastronomica che celebra l'arte della pizza contemporanea."</p>
+                    </blockquote>
+
+                    <p class="filosofia-desc">
+                        Il nostro impasto, caratterizzato da un cornicione pronunciato e un centro sottile,
+                        è il risultato di una ricerca costante della perfezione. Utilizziamo solo ingredienti
+                        di altissima qualità: Pomodoro San Marzano DOP, Mozzarella di Bufala Campana DOP,
+                        Parmigiano Reggiano 24 mesi e salumi artigianali selezionati.
+                    </p>
+
+                    <p class="filosofia-desc">
+                        Antitesi rappresenta l'unione di opposti che si completano:
+                        tradizione e innovazione, semplicità e ricerca, territorio e creatività.
+                    </p>
+                </div>
+
+                <div class="filosofia-image">
+                    <img src="assets/images/filosofia.jpg" alt="La nostra filosofia" loading="lazy">
+                    <div class="image-frame"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-bg-element"></div>
+    </section>
+
+    <!-- Il Locale Section -->
+    <section id="locale" class="section locale">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">L'Atmosfera</span>
+                <h2 class="section-title">Il Locale</h2>
+            </div>
+
+            <p class="section-intro">
+                Un ambiente elegante e accogliente, dove ogni dettaglio è stato pensato per offrire
+                un'esperienza unica. Dalle vetrate industriali alle pareti in tonalità bronzo,
+                fino alle piante che portano un tocco di natura.
+            </p>
+
+            <div class="gallery">
+                <div class="gallery-item gallery-item--large">
+                    <img src="assets/images/locale-1.jpg" alt="Sala principale" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Sala Principale</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/locale-2.jpg" alt="Dettaglio interno" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Dettagli</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/locale-3.jpg" alt="Vista centro storico" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Vista Frascati</span>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item--wide">
+                    <img src="assets/images/locale-4.jpg" alt="Atmosfera serale" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Atmosfera Serale</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Le Nostre Creazioni</span>
+                <h2 class="section-title">Menu</h2>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-category="pizze-classiche">Classiche</button>
+                <button class="menu-tab" data-category="pizze-speciali">Speciali</button>
+                <button class="menu-tab" data-category="fritti">Fritti</button>
+                <button class="menu-tab" data-category="dolci">Dolci</button>
+            </div>
+
+            <div class="menu-content">
+                <!-- Pizze Classiche -->
+                <div class="menu-category active" id="pizze-classiche">
+                    <div class="menu-grid">
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/margherita.jpg" alt="Margherita" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Margherita</h3>
+                                    <span class="menu-item-price">&euro;8</span>
+                                </div>
+                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Fior di Latte, basilico fresco, olio EVO</p>
+                                <span class="menu-item-badge">DOP</span>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/marinara.jpg" alt="Marinara" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Marinara</h3>
+                                    <span class="menu-item-price">&euro;7</span>
+                                </div>
+                                <p class="menu-item-desc">Pomodoro San Marzano DOP, aglio, origano, olio EVO</p>
+                                <span class="menu-item-badge">Vegana</span>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/bufala.jpg" alt="Bufalina" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Bufalina</h3>
+                                    <span class="menu-item-price">&euro;12</span>
+                                </div>
+                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Mozzarella di Bufala Campana DOP, basilico</p>
+                                <span class="menu-item-badge">DOP</span>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/diavola.jpg" alt="Diavola" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Diavola</h3>
+                                    <span class="menu-item-price">&euro;10</span>
+                                </div>
+                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Fior di Latte, salame piccante calabrese</p>
+                                <span class="menu-item-badge menu-item-badge--spicy">Piccante</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Pizze Speciali -->
+                <div class="menu-category" id="pizze-speciali">
+                    <div class="menu-grid">
+                        <article class="menu-item menu-item--featured">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/antitesi.jpg" alt="Antitesi" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Antitesi</h3>
+                                    <span class="menu-item-price">&euro;14</span>
+                                </div>
+                                <p class="menu-item-desc">La nostra signature: crema di zucca, salsiccia di Norcia, provola affumicata, noci tostate</p>
+                                <span class="menu-item-badge menu-item-badge--signature">Signature</span>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/cacio-pepe.jpg" alt="Cacio e Pepe" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Cacio e Pepe</h3>
+                                    <span class="menu-item-price">&euro;13</span>
+                                </div>
+                                <p class="menu-item-desc">Crema di Pecorino Romano DOP, pepe nero macinato al momento, guanciale croccante</p>
+                                <span class="menu-item-badge">Roma</span>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/mortadella.jpg" alt="Mortadella e Pistacchio" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Mortadella &amp; Pistacchio</h3>
+                                    <span class="menu-item-price">&euro;13</span>
+                                </div>
+                                <p class="menu-item-desc">Fior di Latte, mortadella Bologna IGP, crema di pistacchio di Bronte</p>
+                                <span class="menu-item-badge">IGP</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Fritti -->
+                <div class="menu-category" id="fritti">
+                    <div class="menu-grid">
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/fritto-misto.jpg" alt="Fritto Misto" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Fritto Misto</h3>
+                                    <span class="menu-item-price">&euro;8</span>
+                                </div>
+                                <p class="menu-item-desc">Crocchè, arancini, frittatine di pasta, montanarine</p>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/supplì.jpg" alt="Supplì" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Supplì al Telefono</h3>
+                                    <span class="menu-item-price">&euro;3</span>
+                                </div>
+                                <p class="menu-item-desc">Il classico romano con cuore filante di mozzarella</p>
+                                <span class="menu-item-badge">Roma</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Dolci -->
+                <div class="menu-category" id="dolci">
+                    <div class="menu-grid">
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/tiramisu.jpg" alt="Tiramisù" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Tiramisù</h3>
+                                    <span class="menu-item-price">&euro;6</span>
+                                </div>
+                                <p class="menu-item-desc">Ricetta tradizionale con mascarpone fresco e cacao amaro</p>
+                            </div>
+                        </article>
+
+                        <article class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="assets/images/menu/nutella.jpg" alt="Pizza Nutella" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Pizza Nutella</h3>
+                                    <span class="menu-item-price">&euro;7</span>
+                                </div>
+                                <p class="menu-item-desc">Impasto dolce con Nutella e granella di nocciole</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="assets/menu-antitesi.pdf" class="btn btn-outline" download>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Scarica Menu PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Pizza Section -->
+    <section id="pizza" class="section pizza-section">
+        <div class="pizza-bg"></div>
+        <div class="container">
+            <div class="section-header section-header--light">
+                <span class="section-label">L'Arte dell'Impasto</span>
+                <h2 class="section-title">La Pizza</h2>
+            </div>
+
+            <div class="pizza-content">
+                <div class="pizza-features">
+                    <div class="pizza-feature">
+                        <div class="pizza-feature-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="32" cy="32" r="28"/>
+                                <path d="M32 18v14l10 6"/>
+                            </svg>
+                        </div>
+                        <h3>72 Ore di Lievitazione</h3>
+                        <p>Il nostro impasto riposa lentamente per garantire leggerezza e digeribilità.</p>
+                    </div>
+
+                    <div class="pizza-feature">
+                        <div class="pizza-feature-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M32 8c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24"/>
+                                <path d="M32 8v24l17 10"/>
+                            </svg>
+                        </div>
+                        <h3>Cornicione Pronunciato</h3>
+                        <p>Alto, soffice e croccante: il nostro signature che racconta la tradizione napoletana.</p>
+                    </div>
+
+                    <div class="pizza-feature">
+                        <div class="pizza-feature-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="12" y="12" width="40" height="40" rx="4"/>
+                                <path d="M20 32h24M32 20v24"/>
+                            </svg>
+                        </div>
+                        <h3>Ingredienti DOP &amp; IGP</h3>
+                        <p>Solo eccellenze certificate: San Marzano, Bufala Campana, Parmigiano Reggiano.</p>
+                    </div>
+
+                    <div class="pizza-feature">
+                        <div class="pizza-feature-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M32 8l6 18h18l-14 10 5 18-15-11-15 11 5-18-14-10h18z"/>
+                            </svg>
+                        </div>
+                        <h3>4.9 su Google</h3>
+                        <p>La soddisfazione dei nostri clienti è la nostra migliore referenza.</p>
+                    </div>
+                </div>
+
+                <div class="pizza-image">
+                    <img src="assets/images/pizza-hero.jpg" alt="La nostra pizza" loading="lazy">
+                    <div class="pizza-image-frame"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contatti Section -->
+    <section id="contatti" class="section contatti-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Dove Siamo</span>
+                <h2 class="section-title">Contatti</h2>
+            </div>
+
+            <div class="contatti-content">
+                <div class="contatti-info">
+                    <div class="contatti-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div>
+                            <strong>Indirizzo</strong>
+                            <address>
+                                Via Remigio Farnetti, 21<br>
+                                00044 Frascati (RM)
+                            </address>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Via+Remigio+Farnetti+21+Frascati" class="btn btn-outline" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                        </svg>
+                        Apri in Google Maps
+                    </a>
+
+                    <div class="contatti-social">
+                        <span>Seguici</span>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/antitesi.pizzeria" target="_blank" rel="noopener" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/antitesipizzeria" target="_blank" rel="noopener" aria-label="Facebook">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.tripadvisor.com/Restaurant_Review-g229462-d28135545-Reviews-Antitesi-Frascati_Province_of_Rome_Lazio.html" target="_blank" rel="noopener" aria-label="TripAdvisor">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm4-3c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3zm-2-6c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3h2c0-2.76-2.24-5-5-5z"/>
+                                </svg>
+                            </a>
+                            <a href="https://g.page/antitesipizzeria" target="_blank" rel="noopener" aria-label="Google">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contatti-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.123456789!2d12.6809!3d41.8067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ4JzI0LjEiTiAxMsKwNDAnNTEuMiJF!5e0!3m2!1sit!2sit!4v1234567890"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/icons/logo.svg" alt="Antitesi" class="footer-logo">
+                    <div>
+                        <span class="footer-name">ANTITESI</span>
+                        <span class="footer-type">Pizzeria</span>
+                    </div>
+                </div>
+
+                <div class="footer-info">
+                    <p>Via Remigio Farnetti, 21 - 00044 Frascati (RM)</p>
+                    <p>Tel: <a href="tel:+393408854176">+39 340 885 4176</a></p>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/antitesi.pizzeria" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/antitesipizzeria" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Antitesi Pizzeria. Tutti i diritti riservati.</p>
+                <p class="footer-credits">P.IVA 00000000000</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
