@@ -1325,34 +1325,34 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero-pizza-cinematic {
-        width: 100%;
-        max-width: 500px;
-        top: 48%;
+        width: 110%;
+        max-width: 600px;
+        top: 50%;
     }
 
     .pizza-cinematic-img {
-        opacity: 0.75;
-        filter: sepia(8%) saturate(90%) brightness(0.8) blur(0.3px);
+        opacity: 0.85;
+        filter: sepia(5%) saturate(100%) brightness(0.85) blur(0px);
     }
 
     .logo-main {
-        width: 100px;
-        max-height: 120px;
+        width: 140px;
+        max-height: 180px;
     }
 
     .hero-title {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-        letter-spacing: 0.2em;
+        font-size: clamp(3.5rem, 15vw, 5rem);
+        letter-spacing: 0.25em;
     }
 
     .hero-subtitle {
-        font-size: 0.9rem;
-        letter-spacing: 0.4em;
+        font-size: 1.1rem;
+        letter-spacing: 0.5em;
     }
 
     .hero-tagline {
-        font-size: 1.1rem;
-        margin-bottom: var(--space-md);
+        font-size: 1.3rem;
+        margin-bottom: var(--space-lg);
     }
 
     .hero-cta {
@@ -1456,30 +1456,30 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero-pizza-cinematic {
-        top: 48%;
+        top: 50%;
     }
 
     .pizza-cinematic-img {
-        opacity: 0.8;
+        opacity: 0.85;
     }
 
     .logo-main {
-        width: 80px;
-        max-height: 100px;
+        width: 120px;
+        max-height: 150px;
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        letter-spacing: 0.15em;
+        font-size: 2.8rem;
+        letter-spacing: 0.2em;
     }
 
     .hero-subtitle {
-        font-size: 0.75rem;
-        letter-spacing: 0.3em;
+        font-size: 1rem;
+        letter-spacing: 0.4em;
     }
 
     .hero-tagline {
-        font-size: 0.95rem;
+        font-size: 1.15rem;
     }
 
     .hero-cta {
