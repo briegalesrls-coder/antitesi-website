@@ -1366,7 +1366,7 @@ h1, h2, h3, h4, h5, h6 {
         gap: var(--space-sm);
         width: 100%;
         max-width: 280px;
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
 
     .hero-cta .btn {
