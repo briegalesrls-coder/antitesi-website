@@ -1366,8 +1366,7 @@ h1, h2, h3, h4, h5, h6 {
         gap: var(--space-sm);
         width: 100%;
         max-width: 280px;
-        margin-top: auto; /* Spinge i pulsanti in basso */
-        padding-bottom: var(--space-md);
+        margin-top: var(--space-xl); /* Spazio sopra i pulsanti */
     }
 
     .hero-cta .btn {
