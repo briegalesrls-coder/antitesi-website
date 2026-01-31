@@ -509,9 +509,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-main {
-    width: 120px;
+    width: 180px;
     height: auto;
-    max-height: 160px;
+    max-height: 220px;
     margin: 0 auto;
     display: block;
     object-fit: contain;
