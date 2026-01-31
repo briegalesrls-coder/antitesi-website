@@ -1367,7 +1367,7 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         max-width: 280px;
         position: absolute;
-        bottom: 8vh;
+        bottom: 15vh;
         left: 50%;
         transform: translateX(-50%);
     }
