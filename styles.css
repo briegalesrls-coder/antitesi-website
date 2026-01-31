@@ -1317,17 +1317,17 @@ h1, h2, h3, h4, h5, h6 {
     .hero-content {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centra verticalmente */
+        justify-content: flex-start; /* Allinea in alto */
         align-items: center;
         min-height: 100vh;
-        padding: var(--space-lg) var(--space-sm) 15vh; /* top | horizontal | bottom (alza blocco) */
-        gap: var(--space-md);
+        padding: 12vh var(--space-sm) 8vh; /* Blocco più in alto */
+        gap: 0;
     }
 
     .hero-pizza-cinematic {
         width: 110%;
         max-width: 600px;
-        top: 50%;
+        top: 45%;
     }
 
     .pizza-cinematic-img {
@@ -1335,24 +1335,30 @@ h1, h2, h3, h4, h5, h6 {
         filter: sepia(5%) saturate(100%) brightness(0.85) blur(0px);
     }
 
+    .hero-logo {
+        margin-bottom: var(--space-sm);
+    }
+
     .logo-main {
-        width: 140px;
-        max-height: 180px;
+        width: 160px;
+        max-height: 200px;
     }
 
     .hero-title {
-        font-size: clamp(3.5rem, 15vw, 5rem);
+        font-size: clamp(3.8rem, 16vw, 5.5rem);
         letter-spacing: 0.25em;
+        margin-bottom: 0.25rem;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         letter-spacing: 0.5em;
+        margin-bottom: var(--space-sm);
     }
 
     .hero-tagline {
-        font-size: 1.3rem;
-        margin-bottom: var(--space-lg);
+        font-size: 1.4rem;
+        margin-bottom: 0;
     }
 
     .hero-cta {
@@ -1360,10 +1366,8 @@ h1, h2, h3, h4, h5, h6 {
         gap: var(--space-sm);
         width: 100%;
         max-width: 280px;
-    }
-
-    .hero-cta {
-        margin-top: var(--space-sm); /* Abbassa leggermente i pulsanti */
+        margin-top: auto; /* Spinge i pulsanti in basso */
+        padding-bottom: var(--space-md);
     }
 
     .hero-cta .btn {
@@ -1451,12 +1455,11 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Hero per schermi piccoli - tutto leggermente ridotto ma bilanciato */
     .hero-content {
-        padding: var(--space-md) var(--space-sm);
-        gap: var(--space-sm);
+        padding: 10vh var(--space-sm) 6vh;
     }
 
     .hero-pizza-cinematic {
-        top: 50%;
+        top: 45%;
     }
 
     .pizza-cinematic-img {
@@ -1464,22 +1467,22 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .logo-main {
-        width: 120px;
-        max-height: 150px;
+        width: 140px;
+        max-height: 170px;
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         letter-spacing: 0.2em;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
         letter-spacing: 0.4em;
     }
 
     .hero-tagline {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
     }
 
     .hero-cta {
