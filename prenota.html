@@ -440,6 +440,46 @@
             text-decoration: line-through;
         }
 
+        .time-btn.unavailable:hover {
+            border-color: var(--color-gray-dark);
+            background: var(--color-black-lighter);
+        }
+
+        /* Gruppi turno per doppio turno */
+        .turno-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .turno-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-bronze);
+            margin-bottom: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .turno-slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Loading e messaggi */
+        .loading-slots, .no-slots {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-gray);
+            font-style: italic;
+        }
+
+        .no-slots {
+            color: var(--color-bronze);
+        }
+
         /* Personal Data Form */
         .form-section {
             max-width: 500px;
@@ -1385,6 +1425,168 @@
             hasWheelchair: false
         };
 
+        // ✅ Configurazione dinamica dal backend
+        let config = {
+            maxPersone: 8,
+            patternSettimanale: {
+                lunedi: true, martedi: false, mercoledi: true,
+                giovedi: true, venerdi: true, sabato: true, domenica: true
+            },
+            chiusureStraordinarie: [],
+            fascePrenotazione: {},
+            configLoaded: false
+        };
+
+        // Mappa giorni settimana JS → italiano
+        const giorniMap = ['domenica', 'lunedi', 'martedi', 'mercoledi', 'giovedi', 'venerdi', 'sabato'];
+
+        // ✅ Carica configurazione dal backend
+        async function caricaConfigurazione() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/website/config`);
+                const data = await res.json();
+                if (data.ok) {
+                    config.maxPersone = data.max_persone || 8;
+                    config.patternSettimanale = data.pattern_settimanale || config.patternSettimanale;
+                    config.chiusureStraordinarie = data.chiusure_straordinarie || [];
+                    config.fascePrenotazione = data.fasce_prenotazione || {};
+                    config.configLoaded = true;
+                    console.log('✅ Configurazione caricata:', config);
+                    renderCalendar();
+                    renderPersoneButtons();
+                }
+            } catch (error) {
+                console.warn('⚠️ Configurazione non caricata, uso default:', error);
+            }
+        }
+
+        // ✅ Renderizza bottoni persone dinamicamente
+        function renderPersoneButtons() {
+            const container = document.querySelector('.persons-grid');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= config.maxPersone; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'person-btn';
+                btn.dataset.persons = i;
+                btn.textContent = i;
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.person-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    booking.persons = i;
+                    document.getElementById('to-step-3').disabled = false;
+                });
+                container.appendChild(btn);
+            }
+        }
+
+        // ✅ Carica slot orari disponibili per la data selezionata
+        async function caricaSlotOrari() {
+            if (!booking.date || !booking.persons) return;
+
+            const dateISO = booking.date.toISOString().split('T')[0];
+            const timeGrid = document.querySelector('.time-grid');
+            const timeSection = document.querySelector('.time-section');
+
+            // Mostra loading
+            timeGrid.innerHTML = '<div class="loading-slots">Caricamento orari...</div>';
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/website/disponibilita/${dateISO}?persone=${booking.persons}`);
+                const data = await res.json();
+
+                if (data.ok && data.aperto) {
+                    renderTimeSlots(data.slot_disponibili, data.modo_turno);
+                } else {
+                    timeGrid.innerHTML = '<div class="no-slots">Nessun orario disponibile per questa data</div>';
+                }
+            } catch (error) {
+                console.error('Errore caricamento slot:', error);
+                // Fallback a orari statici
+                renderStaticTimeSlots();
+            }
+        }
+
+        // ✅ Renderizza slot orari dinamici
+        function renderTimeSlots(slots, modoTurno) {
+            const timeGrid = document.querySelector('.time-grid');
+            const timeSection = document.querySelector('.time-section');
+
+            // Aggiorna label turno
+            const timeLabel = timeSection.querySelector('.time-label');
+            if (modoTurno === 'unico') {
+                timeLabel.textContent = 'Sera';
+            } else {
+                timeLabel.textContent = 'Seleziona orario';
+            }
+
+            let html = '';
+
+            // Raggruppa per turno se doppio
+            if (modoTurno === 'doppio') {
+                const turno1 = slots.filter(s => s.turno === 'turno_1');
+                const turno2 = slots.filter(s => s.turno === 'turno_2');
+
+                if (turno1.length > 0) {
+                    html += '<div class="turno-group"><div class="turno-label">Primo Turno</div><div class="turno-slots">';
+                    turno1.forEach(slot => {
+                        const disabledClass = slot.disponibile ? '' : 'unavailable';
+                        const disabledAttr = slot.disponibile ? '' : 'disabled';
+                        html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
+                    });
+                    html += '</div></div>';
+                }
+
+                if (turno2.length > 0) {
+                    html += '<div class="turno-group"><div class="turno-label">Secondo Turno</div><div class="turno-slots">';
+                    turno2.forEach(slot => {
+                        const disabledClass = slot.disponibile ? '' : 'unavailable';
+                        const disabledAttr = slot.disponibile ? '' : 'disabled';
+                        html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
+                    });
+                    html += '</div></div>';
+                }
+            } else {
+                // Turno unico
+                slots.forEach(slot => {
+                    const disabledClass = slot.disponibile ? '' : 'unavailable';
+                    const disabledAttr = slot.disponibile ? '' : 'disabled';
+                    html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
+                });
+            }
+
+            timeGrid.innerHTML = html;
+
+            // Riattacca event listeners
+            document.querySelectorAll('.time-btn:not([disabled])').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    booking.time = btn.dataset.time;
+                    document.getElementById('to-step-4').disabled = false;
+                });
+            });
+        }
+
+        // Fallback: orari statici
+        function renderStaticTimeSlots() {
+            const timeGrid = document.querySelector('.time-grid');
+            const staticSlots = ['19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
+
+            timeGrid.innerHTML = staticSlots.map(ora =>
+                `<button class="time-btn" data-time="${ora}">${ora}</button>`
+            ).join('');
+
+            document.querySelectorAll('.time-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    booking.time = btn.dataset.time;
+                    document.getElementById('to-step-4').disabled = false;
+                });
+            });
+        }
+
         // DOM Elements
         const stepTabs = document.querySelectorAll('.step-tab');
         const stepContents = document.querySelectorAll('.step-content');
@@ -1421,11 +1623,15 @@
 
             for (let day = 1; day <= lastDay.getDate(); day++) {
                 const date = new Date(currentYear, currentMonth, day);
+                const dateISO = date.toISOString().split('T')[0];
                 const isToday = date.getTime() === today.getTime();
                 const isPast = date < today;
-                // Monday (1) is closed
-                const isMonday = date.getDay() === 1;
-                const isDisabled = isPast || isMonday;
+
+                // ✅ Usa configurazione dinamica per giorni chiusi
+                const giornoSettimana = giorniMap[date.getDay()];
+                const apertoPerPattern = config.patternSettimanale[giornoSettimana] !== false;
+                const chiusoStraordinario = config.chiusureStraordinarie.includes(dateISO);
+                const isDisabled = isPast || !apertoPerPattern || chiusoStraordinario;
 
                 let classes = 'calendar-day';
                 if (isToday) classes += ' today';
@@ -1539,7 +1745,10 @@
         // Navigation Buttons
         document.getElementById('to-step-2').addEventListener('click', () => goToStep(2));
         document.getElementById('back-to-1').addEventListener('click', () => goToStep(1));
-        document.getElementById('to-step-3').addEventListener('click', () => goToStep(3));
+        document.getElementById('to-step-3').addEventListener('click', () => {
+            goToStep(3);
+            caricaSlotOrari(); // ✅ Carica slot dinamici
+        });
         document.getElementById('back-to-2').addEventListener('click', () => goToStep(2));
         document.getElementById('to-step-4').addEventListener('click', () => goToStep(4));
         document.getElementById('back-to-3').addEventListener('click', () => goToStep(3));
@@ -1618,8 +1827,10 @@
             });
         });
 
-        // API Configuration
-        const API_BASE_URL = 'http://localhost:8000'; // Cambiare in produzione
+        // API Configuration - Auto-detect environment
+        const API_BASE_URL = window.location.hostname === 'localhost'
+            ? 'http://localhost:8000'  // Development
+            : 'https://pizzeria-prenotazioni-production.up.railway.app';  // Production
 
         // Confirm Booking - Chiama API backend
         document.getElementById('confirm-booking').addEventListener('click', async () => {
@@ -1702,6 +1913,7 @@
 
         // Initialize
         renderCalendar();
+        caricaConfigurazione(); // ✅ Carica configurazione dinamica
     </script>
 </body>
 </html>
