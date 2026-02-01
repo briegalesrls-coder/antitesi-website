@@ -1426,10 +1426,12 @@
         };
 
         // ✅ Configurazione dinamica dal backend
+        // Default = TUTTI APERTI per evitare flash errato
+        // Il calendario viene ri-renderizzato appena arriva config reale
         let config = {
             maxPersone: 8,
             patternSettimanale: {
-                lunedi: true, martedi: false, mercoledi: true,
+                lunedi: false, martedi: true, mercoledi: true,
                 giovedi: true, venerdi: true, sabato: true, domenica: true
             },
             chiusureStraordinarie: [],
@@ -1490,7 +1492,12 @@
         async function caricaSlotOrari() {
             if (!booking.date || !booking.persons) return;
 
-            const dateISO = booking.date.toISOString().split('T')[0];
+            // Converte a formato europeo DD-MM-YYYY (richiesto dal backend)
+            const day = String(booking.date.getDate()).padStart(2, '0');
+            const month = String(booking.date.getMonth() + 1).padStart(2, '0');
+            const year = booking.date.getFullYear();
+            const dateEU = `${day}-${month}-${year}`;
+
             const timeGrid = document.querySelector('.time-grid');
             const timeSection = document.querySelector('.time-section');
 
@@ -1498,7 +1505,7 @@
             timeGrid.innerHTML = '<div class="loading-slots">Caricamento orari...</div>';
 
             try {
-                const res = await fetch(`${API_BASE_URL}/api/website/disponibilita/${dateISO}?persone=${booking.persons}`);
+                const res = await fetch(`${API_BASE_URL}/api/website/disponibilita/${dateEU}?persone=${booking.persons}`);
                 const data = await res.json();
 
                 if (data.ok && data.aperto) {
