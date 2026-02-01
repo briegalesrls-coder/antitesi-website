@@ -1914,6 +1914,10 @@
 
         // Mostra conferma prenotazione
         function showBookingSuccess() {
+            // Ricalcola data formattata da booking.date per garantire coerenza con API
+            const confirmedDate = booking.date;
+            const confirmedDateFormatted = `${confirmedDate.getDate()} ${months[confirmedDate.getMonth()]} ${confirmedDate.getFullYear()}`;
+
             const summaryDiv = document.querySelector('.summary');
             summaryDiv.innerHTML = `
                 <div style="text-align: center; padding: 2rem;">
@@ -1922,7 +1926,7 @@
                         Prenotazione Confermata!
                     </h3>
                     <p style="color: var(--color-gray); margin-bottom: 1.5rem;">
-                        Ti aspettiamo il <strong>${booking.dateFormatted}</strong> alle <strong>${booking.time}</strong>
+                        Ti aspettiamo il <strong>${confirmedDateFormatted}</strong> alle <strong>${booking.time}</strong>
                     </p>
                     <p style="font-size: 0.875rem; color: var(--color-gray);">
                         Riceverai una conferma via SMS.<br>
