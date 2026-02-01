@@ -1221,7 +1221,7 @@
                     <button class="person-btn" data-persons="8">8</button>
                 </div>
                 <div class="persons-more">
-                    <a href="tel:+393408854176">Più di 8 persone? Chiamaci</a>
+                    <a href="tel:+393408854176" id="persons-more-link">Più di 8 persone? Chiamaci</a>
                 </div>
                 <div class="step-nav">
                     <button class="btn-nav btn-back" id="back-to-1">Indietro</button>
@@ -1477,6 +1477,12 @@
                     document.getElementById('to-step-3').disabled = false;
                 });
                 container.appendChild(btn);
+            }
+
+            // ✅ Aggiorna testo "Più di X persone? Chiamaci"
+            const moreLink = document.getElementById('persons-more-link');
+            if (moreLink) {
+                moreLink.textContent = `Più di ${config.maxPersone} persone? Chiamaci`;
             }
         }
 
