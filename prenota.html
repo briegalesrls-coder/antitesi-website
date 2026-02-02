@@ -1066,6 +1066,187 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Waitlist Styles */
+        .waitlist-notice {
+            background: rgba(184, 115, 51, 0.1);
+            border: 1px solid var(--color-bronze);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .waitlist-notice p {
+            font-size: 0.85rem;
+            color: var(--color-gray);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .waitlist-notice .btn-waitlist {
+            background: transparent;
+            border: 1px solid var(--color-bronze);
+            color: var(--color-bronze);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .waitlist-notice .btn-waitlist:hover {
+            background: var(--color-bronze);
+            color: var(--color-white-pure);
+        }
+
+        .waitlist-disclaimer {
+            font-size: 0.7rem !important;
+            color: var(--color-gray-dark) !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Waitlist Modal */
+        .waitlist-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .waitlist-modal.active {
+            display: flex;
+        }
+
+        .waitlist-modal-content {
+            background: var(--color-black-soft);
+            border: 1px solid var(--color-gray-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .waitlist-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .waitlist-modal-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-bronze);
+        }
+
+        .waitlist-modal-close {
+            background: transparent;
+            border: none;
+            color: var(--color-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        .waitlist-modal-close:hover {
+            color: var(--color-white);
+        }
+
+        .waitlist-info {
+            background: var(--color-black-lighter);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .waitlist-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .waitlist-info-label {
+            color: var(--color-gray);
+        }
+
+        .waitlist-info-value {
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .waitlist-warning {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .waitlist-warning p {
+            font-size: 0.8rem;
+            color: #e74c3c;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .waitlist-warning strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .waitlist-form-group {
+            margin-bottom: 1rem;
+        }
+
+        .waitlist-form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .waitlist-form-group .required {
+            color: var(--color-bronze);
+        }
+
+        .btn-submit-waitlist {
+            width: 100%;
+            background: var(--color-bronze);
+            color: var(--color-white-pure);
+            border: none;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+
+        .btn-submit-waitlist:hover {
+            background: var(--color-bronze-light);
+        }
+
+        .btn-submit-waitlist:disabled {
+            background: var(--color-gray-dark);
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -1407,6 +1588,65 @@
         </section>
     </main>
 
+    <!-- Waitlist Modal -->
+    <div class="waitlist-modal" id="waitlist-modal">
+        <div class="waitlist-modal-content">
+            <div class="waitlist-modal-header">
+                <h3 class="waitlist-modal-title">Lista d'Attesa</h3>
+                <button class="waitlist-modal-close" id="close-waitlist-modal">&times;</button>
+            </div>
+
+            <div class="waitlist-info">
+                <div class="waitlist-info-item">
+                    <span class="waitlist-info-label">Data</span>
+                    <span class="waitlist-info-value" id="waitlist-date">-</span>
+                </div>
+                <div class="waitlist-info-item">
+                    <span class="waitlist-info-label">Orario</span>
+                    <span class="waitlist-info-value" id="waitlist-turno">-</span>
+                </div>
+                <div class="waitlist-info-item">
+                    <span class="waitlist-info-label">Persone</span>
+                    <span class="waitlist-info-value" id="waitlist-persons">-</span>
+                </div>
+            </div>
+
+            <div class="waitlist-warning">
+                <p>
+                    <strong>⚠️ Attenzione</strong>
+                    La lista d'attesa <strong>NON garantisce</strong> la prenotazione.
+                    Verrai contattato direttamente dal team Antitesi <strong>solo</strong> se si libera un posto.
+                </p>
+            </div>
+
+            <form id="waitlist-form">
+                <div class="waitlist-form-group">
+                    <label>Nome <span class="required">*</span></label>
+                    <input type="text" class="form-input" id="waitlist-nome" placeholder="Il tuo nome" required>
+                </div>
+                <div class="waitlist-form-group">
+                    <label>Cognome</label>
+                    <input type="text" class="form-input" id="waitlist-cognome" placeholder="Il tuo cognome">
+                </div>
+                <div class="waitlist-form-group">
+                    <label>Telefono <span class="required">*</span></label>
+                    <div class="phone-input-group">
+                        <input type="text" class="form-input phone-prefix" value="+39" readonly>
+                        <input type="tel" class="form-input phone-number" id="waitlist-telefono" placeholder="3401234567" required>
+                    </div>
+                </div>
+                <div class="waitlist-form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" id="waitlist-email" placeholder="email@esempio.it">
+                </div>
+
+                <button type="submit" class="btn-submit-waitlist" id="submit-waitlist">
+                    Entra in Lista d'Attesa
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Booking State
         const booking = {
@@ -1436,6 +1676,7 @@
             },
             chiusureStraordinarie: [],
             fascePrenotazione: {},
+            waitlistEnabled: false,  // ✅ Lista d'attesa
             configLoaded: false
         };
 
@@ -1461,6 +1702,7 @@
                     config.patternSettimanale = data.pattern_settimanale || config.patternSettimanale;
                     config.chiusureStraordinarie = data.chiusure_straordinarie || [];
                     config.fascePrenotazione = data.fasce_prenotazione || {};
+                    config.waitlistEnabled = data.waitlist_enabled || false;  // ✅ Lista d'attesa
                     config.configLoaded = true;
                     console.log('✅ Configurazione caricata:', config);
                     renderCalendar();
@@ -1549,6 +1791,10 @@
                 const turno1 = slots.filter(s => s.turno === 'turno_1');
                 const turno2 = slots.filter(s => s.turno === 'turno_2');
 
+                // Verifica se turni sono pieni (tutti slot non disponibili)
+                const turno1Pieno = turno1.length > 0 && turno1.every(s => !s.disponibile);
+                const turno2Pieno = turno2.length > 0 && turno2.every(s => !s.disponibile);
+
                 if (turno1.length > 0) {
                     html += '<div class="turno-group"><div class="turno-label">Primo Turno</div><div class="turno-slots">';
                     turno1.forEach(slot => {
@@ -1556,7 +1802,12 @@
                         const disabledAttr = slot.disponibile ? '' : 'disabled';
                         html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
                     });
-                    html += '</div></div>';
+                    html += '</div>';
+                    // ✅ Aggiungi opzione waitlist se turno pieno
+                    if (turno1Pieno && config.waitlistEnabled) {
+                        html += renderWaitlistNotice('turno_1', 'Primo Turno');
+                    }
+                    html += '</div>';
                 }
 
                 if (turno2.length > 0) {
@@ -1566,20 +1817,32 @@
                         const disabledAttr = slot.disponibile ? '' : 'disabled';
                         html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
                     });
-                    html += '</div></div>';
+                    html += '</div>';
+                    // ✅ Aggiungi opzione waitlist se turno pieno
+                    if (turno2Pieno && config.waitlistEnabled) {
+                        html += renderWaitlistNotice('turno_2', 'Secondo Turno');
+                    }
+                    html += '</div>';
                 }
             } else {
                 // Turno unico
+                const turnoUnicoPieno = slots.length > 0 && slots.every(s => !s.disponibile);
+
                 slots.forEach(slot => {
                     const disabledClass = slot.disponibile ? '' : 'unavailable';
                     const disabledAttr = slot.disponibile ? '' : 'disabled';
                     html += `<button class="time-btn ${disabledClass}" data-time="${slot.ora}" ${disabledAttr}>${slot.ora}</button>`;
                 });
+
+                // ✅ Aggiungi opzione waitlist se turno pieno
+                if (turnoUnicoPieno && config.waitlistEnabled) {
+                    html += renderWaitlistNotice('turno_1', 'questa sera');
+                }
             }
 
             timeGrid.innerHTML = html;
 
-            // Riattacca event listeners
+            // Riattacca event listeners per time buttons
             document.querySelectorAll('.time-btn:not([disabled])').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
@@ -1588,6 +1851,26 @@
                     document.getElementById('to-step-4').disabled = false;
                 });
             });
+
+            // ✅ Attacca event listeners per bottoni waitlist
+            document.querySelectorAll('.btn-waitlist').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openWaitlistModal(btn.dataset.turno, btn.dataset.turnoLabel);
+                });
+            });
+        }
+
+        // ✅ Genera HTML per notice waitlist
+        function renderWaitlistNotice(turno, turnoLabel) {
+            return `
+                <div class="waitlist-notice">
+                    <p>Turno pieno! Vuoi entrare in lista d'attesa per ${turnoLabel}?</p>
+                    <button class="btn-waitlist" data-turno="${turno}" data-turno-label="${turnoLabel}">
+                        Entra in Lista d'Attesa
+                    </button>
+                    <p class="waitlist-disclaimer">La richiamata non è assicurata</p>
+                </div>
+            `;
         }
 
         // Fallback: orari statici
@@ -1935,6 +2218,133 @@
                     <a href="index.html" class="btn" style="margin-top: 2rem; background: var(--color-bronze); color: white; text-decoration: none;">
                         Torna al Sito
                     </a>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // WAITLIST MODAL FUNCTIONS
+        // ==========================================
+
+        let waitlistData = {
+            turno: null,
+            turnoLabel: null
+        };
+
+        function openWaitlistModal(turno, turnoLabel) {
+            waitlistData.turno = turno;
+            waitlistData.turnoLabel = turnoLabel;
+
+            // Popola info nel modal
+            document.getElementById('waitlist-date').textContent = booking.dateShort || '-';
+            document.getElementById('waitlist-turno').textContent = turnoLabel || '-';
+            document.getElementById('waitlist-persons').textContent = booking.persons ? `${booking.persons} persone` : '-';
+
+            // Pre-compila se abbiamo già i dati
+            if (booking.nome) document.getElementById('waitlist-nome').value = booking.nome;
+            if (booking.cognome) document.getElementById('waitlist-cognome').value = booking.cognome;
+            if (booking.telefono) document.getElementById('waitlist-telefono').value = booking.telefono;
+            if (booking.email) document.getElementById('waitlist-email').value = booking.email;
+
+            document.getElementById('waitlist-modal').classList.add('active');
+        }
+
+        function closeWaitlistModal() {
+            document.getElementById('waitlist-modal').classList.remove('active');
+        }
+
+        // Close modal events
+        document.getElementById('close-waitlist-modal').addEventListener('click', closeWaitlistModal);
+        document.getElementById('waitlist-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'waitlist-modal') closeWaitlistModal();
+        });
+
+        // Submit waitlist form
+        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-waitlist');
+            const originalText = btn.textContent;
+            btn.textContent = 'Invio in corso...';
+            btn.disabled = true;
+
+            const nome = document.getElementById('waitlist-nome').value.trim();
+            const cognome = document.getElementById('waitlist-cognome').value.trim();
+            const telefono = document.getElementById('waitlist-telefono').value.trim();
+            const email = document.getElementById('waitlist-email').value.trim();
+
+            // Validazione
+            if (!nome || !telefono || telefono.length < 9) {
+                alert('Inserisci nome e telefono valido');
+                btn.textContent = originalText;
+                btn.disabled = false;
+                return;
+            }
+
+            // Prepara payload - backend aspetta DD-MM-YYYY
+            const day = String(booking.date.getDate()).padStart(2, '0');
+            const month = String(booking.date.getMonth() + 1).padStart(2, '0');
+            const year = booking.date.getFullYear();
+            const dataEU = `${day}-${month}-${year}`;
+
+            const payload = {
+                data: dataEU,
+                turno: waitlistData.turno,
+                nome: nome,
+                cognome: cognome,
+                telefono: telefono,
+                email: email || null,
+                persone: booking.persons  // backend usa "persone" non "coperti"
+            };
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/website/waitlist`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.ok) {
+                    // Successo
+                    showWaitlistSuccess();
+                } else {
+                    alert(`Errore: ${result.message || 'Impossibile aggiungere alla lista d\'attesa'}`);
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Errore API waitlist:', error);
+                alert('Errore di connessione. Riprova.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        function showWaitlistSuccess() {
+            const modalContent = document.querySelector('.waitlist-modal-content');
+            modalContent.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📋</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-bronze);">
+                        Sei in Lista d'Attesa!
+                    </h3>
+                    <p style="color: var(--color-gray); margin-bottom: 1rem; line-height: 1.5;">
+                        <strong>${booking.dateShort}</strong> - ${waitlistData.turnoLabel}<br>
+                        ${booking.persons} persone
+                    </p>
+                    <div style="background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); border-radius: 8px; padding: 1rem; margin: 1.5rem 0;">
+                        <p style="font-size: 0.85rem; color: #e74c3c; margin: 0; line-height: 1.5;">
+                            ⚠️ <strong>Ricorda:</strong> La richiamata NON è garantita.<br>
+                            Verrai contattato solo se si libera un posto.
+                        </p>
+                    </div>
+                    <button onclick="location.reload()" class="btn" style="background: var(--color-bronze); color: white; border: none; cursor: pointer;">
+                        Chiudi
+                    </button>
                 </div>
             `;
         }
