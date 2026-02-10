@@ -540,7 +540,7 @@ function showBookingSuccess() {
                 per <strong>${booking.persons} ${booking.persons === 1 ? 'persona' : 'persone'}</strong>
             </p>
             <p class="success-whatsapp-note">
-                Riceverai conferma via WhatsApp al numero che hai indicato.<br>
+                Riceverai conferma via email all'indirizzo che hai indicato.<br>
                 Per modifiche, contattaci al <a href="tel:+393408854176" style="color: var(--color-bronze);">340 885 4176</a>
             </p>
             <div class="success-actions">
