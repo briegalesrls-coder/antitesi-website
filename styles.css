@@ -624,7 +624,7 @@ h1, h2, h3, h4, h5, h6 {
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 250px);
+    grid-template-rows: repeat(2, 300px);
     gap: var(--space-sm);
 }
 
@@ -679,18 +679,48 @@ h1, h2, h3, h4, h5, h6 {
 .locale-eventi {
     text-align: center;
     margin-top: var(--space-lg);
-    padding: var(--space-md) var(--space-lg);
-    border: 1px solid rgba(184, 115, 51, 0.3);
-    border-radius: var(--border-radius-lg);
-    background: rgba(184, 115, 51, 0.05);
+    padding: var(--space-lg) var(--space-lg) var(--space-md);
+}
+
+.locale-eventi-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.separator-line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-bronze), transparent);
+}
+
+.separator-icon {
+    color: var(--color-bronze);
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.locale-eventi-label {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-cognac-light);
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.03em;
 }
 
 .locale-eventi p {
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    color: var(--color-cream);
-    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+    color: var(--color-gray);
+    margin-bottom: var(--space-md);
     letter-spacing: 0.02em;
+    line-height: 1.8;
 }
 
 .locale-eventi strong {
