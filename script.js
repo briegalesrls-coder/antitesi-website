@@ -211,7 +211,6 @@ const ScrollReveal = {
         const selectors = [
             '.section-header',
             '.filosofia-content > *',
-            '.gallery-item',
             '.menu-item',
             '.pizza-feature',
             '.pizza-image',
