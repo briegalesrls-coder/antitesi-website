@@ -1,0 +1,13 @@
+# Windows artifacts
+NUL
+Thumbs.db
+Desktop.ini
+
+# Test files
+test-download.*
+
+# Extra photos (kept locally, not deployed)
+assets/images/locale/11.jpg
+assets/images/locale/222.jpg
+assets/images/locale/locale---.jpg
+assets/images/locale/locale-11.jpg
