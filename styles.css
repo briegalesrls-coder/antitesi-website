@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section
+   Hero Section - Video Background
    -------------------------------------------------------------------------- */
 .hero {
     position: relative;
@@ -409,98 +409,63 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: var(--color-black);
 }
 
-/* Background scuro con texture sottile stile Masanielli */
-.hero-bg-dark {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background:
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 2px,
-            rgba(30, 30, 30, 0.3) 2px,
-            rgba(30, 30, 30, 0.3) 4px
-        ),
-        var(--color-black);
-}
-
-/* Pizza centrale con effetto cinematografico */
-.hero-pizza-cinematic {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    max-width: 900px;
-    z-index: -1;
-    opacity: 0;
-    animation: fadeInPizza 2s ease forwards;
-    animation-delay: 0.5s;
-}
-
-.pizza-cinematic-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    /* Leggermente sfocata */
-    filter: sepia(10%) saturate(85%) brightness(0.75) blur(0.5px);
-    opacity: 0.65;
-    /* Maschera radiale più ampia e sfumata gradualmente */
-    mask-image: radial-gradient(
-        ellipse 60% 55% at center,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.7) 25%,
-        rgba(0, 0, 0, 0.4) 45%,
-        rgba(0, 0, 0, 0.15) 65%,
-        transparent 85%
-    );
-    -webkit-mask-image: radial-gradient(
-        ellipse 60% 55% at center,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.7) 25%,
-        rgba(0, 0, 0, 0.4) 45%,
-        rgba(0, 0, 0, 0.15) 65%,
-        transparent 85%
-    );
-}
-
-@keyframes fadeInPizza {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-/* Overlay vignette per effetto cinema */
-.hero::after {
-    content: '';
+/* Video wrapper — copre tutta la hero */
+.hero-video-wrapper {
     position: absolute;
     inset: 0;
     z-index: 0;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeInVideo 2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInVideo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Overlay gradiente — scurisce il video per leggibilità testo */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     pointer-events: none;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(13, 13, 13, 0.2) 0%,
-        rgba(13, 13, 13, 0.35) 30%,
-        rgba(13, 13, 13, 0.6) 60%,
-        rgba(13, 13, 13, 0.85) 85%,
-        var(--color-black) 100%
-    );
+    background:
+        /* Vignette radiale */
+        radial-gradient(
+            ellipse at center,
+            rgba(13, 13, 13, 0.15) 0%,
+            rgba(13, 13, 13, 0.3) 40%,
+            rgba(13, 13, 13, 0.6) 70%,
+            rgba(13, 13, 13, 0.85) 90%,
+            var(--color-black) 100%
+        ),
+        /* Gradiente verticale — forte in basso per transizione alla sezione successiva */
+        linear-gradient(
+            to bottom,
+            rgba(13, 13, 13, 0.3) 0%,
+            rgba(13, 13, 13, 0.2) 30%,
+            rgba(13, 13, 13, 0.4) 60%,
+            rgba(13, 13, 13, 0.9) 85%,
+            var(--color-black) 100%
+        );
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
     padding: var(--space-lg) var(--space-md) var(--space-xl);
-    padding-top: calc(var(--navbar-height) + var(--space-md)); /* Più in alto */
+    padding-top: calc(var(--navbar-height) + var(--space-md));
     max-width: 800px;
 }
 
@@ -538,10 +503,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 300;
+    font-size: 1.1rem;
+    font-weight: 400;
     letter-spacing: 0.5em;
-    color: var(--color-bronze);
+    color: var(--color-bronze-light);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
     margin-bottom: var(--space-md);
     opacity: 0;
     animation: fadeInUp 1s ease forwards;
@@ -1317,22 +1283,20 @@ h1, h2, h3, h4, h5, h6 {
     .hero-content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Allinea in alto */
+        justify-content: flex-start;
         align-items: center;
         min-height: 100vh;
-        padding: 12vh var(--space-sm) 8vh; /* Blocco più in alto */
+        padding: 12vh var(--space-sm) 8vh;
         gap: 0;
     }
 
-    .hero-pizza-cinematic {
-        width: 110%;
-        max-width: 600px;
-        top: 45%;
+    /* Mobile: mostra poster statico invece del video per performance */
+    .hero-video {
+        display: none;
     }
 
-    .pizza-cinematic-img {
-        opacity: 0.85;
-        filter: sepia(5%) saturate(100%) brightness(0.85) blur(0px);
+    .hero-video-wrapper {
+        background: url('assets/images/pizza-hero.jpg') center/cover no-repeat;
     }
 
     .hero-logo {
@@ -1462,14 +1426,6 @@ h1, h2, h3, h4, h5, h6 {
         padding: 10vh var(--space-sm) 6vh;
     }
 
-    .hero-pizza-cinematic {
-        top: 45%;
-    }
-
-    .pizza-cinematic-img {
-        opacity: 0.85;
-    }
-
     .logo-main {
         width: 140px;
         max-height: 170px;
@@ -1517,6 +1473,48 @@ h1, h2, h3, h4, h5, h6 {
 .pizza-image img {
     background: var(--color-black-lighter);
     min-height: 200px;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Sticky CTA
+   -------------------------------------------------------------------------- */
+.mobile-sticky-cta {
+    display: none; /* Nascosto su desktop */
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-cta {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 900;
+        padding: var(--space-sm);
+        padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+        background: linear-gradient(to top, rgba(13, 13, 13, 0.98) 60%, transparent 100%);
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+    }
+
+    .mobile-sticky-cta.visible {
+        transform: translateY(0);
+    }
+
+    .btn-sticky {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 -2px 20px rgba(184, 115, 51, 0.3);
+    }
 }
 
 /* --------------------------------------------------------------------------

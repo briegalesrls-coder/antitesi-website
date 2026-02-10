@@ -57,15 +57,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Stile Cinematografico -->
+    <!-- Hero Section - Video Cinematografico -->
     <section id="hero" class="hero">
-        <!-- Background scuro con texture sottile -->
-        <div class="hero-bg-dark"></div>
-
-        <!-- Immagine pizza con effetto cinematografico centrale -->
-        <div class="hero-pizza-cinematic">
-            <img src="assets/images/pizza-hero.jpg" alt="Pizza Antitesi" class="pizza-cinematic-img">
+        <!-- Video Background (fallback: poster image) -->
+        <div class="hero-video-wrapper">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/images/pizza-hero.jpg"
+                class="hero-video"
+            >
+                <source src="assets/video/hero-intro.mp4?v=5" type="video/mp4">
+            </video>
         </div>
+
+        <!-- Overlay gradiente per leggibilità testo -->
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
             <div class="hero-logo">
@@ -540,11 +550,71 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Antitesi Pizzeria. Tutti i diritti riservati.</p>
+                <p>&copy; 2025 Antitesi Pizzeria. Tutti i diritti riservati.</p>
                 <p class="footer-credits">P.IVA 00000000000</p>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Sticky CTA — visibile solo su mobile dopo lo scroll -->
+    <div class="mobile-sticky-cta" id="mobileCta">
+        <a href="prenota.html" class="btn btn-primary btn-sticky">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Prenota un Tavolo
+        </a>
+    </div>
+
+    <!-- Structured Data SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Antitesi Pizzeria",
+        "image": "https://antitesipizzeria.it/assets/images/og-image.jpg",
+        "url": "https://antitesipizzeria.it",
+        "telephone": "+393408854176",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Remigio Farnetti, 21",
+            "addressLocality": "Frascati",
+            "addressRegion": "RM",
+            "postalCode": "00044",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.8067,
+            "longitude": 12.6809
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "19:30",
+                "closes": "00:00"
+            }
+        ],
+        "servesCuisine": ["Pizza", "Italian", "Neapolitan Pizza"],
+        "priceRange": "€€",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "200",
+            "bestRating": "5"
+        },
+        "sameAs": [
+            "https://www.instagram.com/antitesi.pizzeria",
+            "https://www.facebook.com/antitesipizzeria"
+        ],
+        "acceptsReservations": "True",
+        "hasMenu": "https://antitesipizzeria.it/#menu"
+    }
+    </script>
 
     <!-- Scripts -->
     <script src="script.js"></script>

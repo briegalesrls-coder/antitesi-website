@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     MenuTabs.init();
     ScrollReveal.init();
     Gallery.init();
+    MobileCta.init();
 });
 
 /* --------------------------------------------------------------------------
@@ -259,6 +260,34 @@ const Gallery = {
     handleHover(item, isHovering) {
         // Optional: Add more complex hover effects here
         // For now, CSS handles the hover states
+    }
+};
+
+/* --------------------------------------------------------------------------
+   Mobile Sticky CTA - Appare dopo scroll oltre la hero
+   -------------------------------------------------------------------------- */
+const MobileCta = {
+    cta: null,
+    heroHeight: 0,
+
+    init() {
+        this.cta = document.getElementById('mobileCta');
+        if (!this.cta) return;
+
+        const hero = document.getElementById('hero');
+        if (hero) {
+            this.heroHeight = hero.offsetHeight;
+        }
+
+        window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
+    },
+
+    handleScroll() {
+        if (window.scrollY > this.heroHeight * 0.8) {
+            this.cta.classList.add('visible');
+        } else {
+            this.cta.classList.remove('visible');
+        }
     }
 };
 
