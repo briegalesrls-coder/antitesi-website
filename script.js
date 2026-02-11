@@ -331,21 +331,111 @@ const ScrollReveal = {
    -------------------------------------------------------------------------- */
 const Gallery = {
     items: null,
+    container: null,
+    dots: null,
+    autoScrollTimer: null,
+    currentIndex: 0,
+    isMobile: false,
 
     init() {
+        this.container = document.querySelector('.gallery');
         this.items = document.querySelectorAll('.gallery-item');
+        this.dots = document.querySelector('.gallery-dots');
         if (!this.items.length) return;
 
-        // Add hover effect enhancement
+        // Hover effects (desktop)
         this.items.forEach(item => {
             item.addEventListener('mouseenter', () => this.handleHover(item, true));
             item.addEventListener('mouseleave', () => this.handleHover(item, false));
         });
+
+        // Mobile carousel
+        this.checkMobile();
+        window.addEventListener('resize', () => this.checkMobile());
+    },
+
+    checkMobile() {
+        const wasMobile = this.isMobile;
+        this.isMobile = window.innerWidth <= 768;
+
+        if (this.isMobile && !wasMobile) {
+            this.initCarousel();
+        } else if (!this.isMobile && wasMobile) {
+            this.destroyCarousel();
+        }
+    },
+
+    initCarousel() {
+        if (!this.container || !this.dots) return;
+
+        // Crea dots
+        this.dots.innerHTML = '';
+        this.items.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+            dot.addEventListener('click', () => this.goTo(i));
+            this.dots.appendChild(dot);
+        });
+
+        // Scroll listener per aggiornare dots
+        this.container.addEventListener('scroll', () => this.onScroll());
+
+        // Auto-scroll ogni 3.5s
+        this.startAutoScroll();
+
+        // Pausa auto-scroll su touch
+        this.container.addEventListener('touchstart', () => this.stopAutoScroll(), { passive: true });
+        this.container.addEventListener('touchend', () => this.startAutoScroll(), { passive: true });
+    },
+
+    destroyCarousel() {
+        this.stopAutoScroll();
+        if (this.dots) this.dots.innerHTML = '';
+    },
+
+    onScroll() {
+        if (!this.container) return;
+        const scrollLeft = this.container.scrollLeft;
+        const itemWidth = this.container.offsetWidth * 0.85 + 12; // 85% + gap
+        const index = Math.round(scrollLeft / itemWidth);
+        if (index !== this.currentIndex) {
+            this.currentIndex = index;
+            this.updateDots();
+        }
+    },
+
+    updateDots() {
+        if (!this.dots) return;
+        const allDots = this.dots.querySelectorAll('.gallery-dot');
+        allDots.forEach((d, i) => d.classList.toggle('active', i === this.currentIndex));
+    },
+
+    goTo(index) {
+        if (!this.container) return;
+        const itemWidth = this.container.offsetWidth * 0.85 + 12;
+        this.container.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
+        this.currentIndex = index;
+        this.updateDots();
+    },
+
+    startAutoScroll() {
+        this.stopAutoScroll();
+        this.autoScrollTimer = setInterval(() => {
+            const next = (this.currentIndex + 1) % this.items.length;
+            this.goTo(next);
+        }, 3500);
+    },
+
+    stopAutoScroll() {
+        if (this.autoScrollTimer) {
+            clearInterval(this.autoScrollTimer);
+            this.autoScrollTimer = null;
+        }
     },
 
     handleHover(item, isHovering) {
-        // Optional: Add more complex hover effects here
-        // For now, CSS handles the hover states
+        // CSS handles hover states
     }
 };
 
