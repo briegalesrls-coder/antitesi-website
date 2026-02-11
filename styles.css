@@ -678,8 +678,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .locale-eventi {
     text-align: center;
-    margin-top: var(--space-lg);
-    padding: var(--space-lg) var(--space-lg) var(--space-md);
+    margin-top: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg) var(--space-md);
 }
 
 .locale-eventi-separator {
@@ -687,12 +687,12 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
 }
 
 .separator-line {
     display: block;
-    width: 60px;
+    width: 80px;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-bronze), transparent);
 }
@@ -701,12 +701,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-bronze);
     display: flex;
     align-items: center;
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 .locale-eventi-label {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 400;
     font-style: italic;
     color: var(--color-cognac-light);
@@ -716,9 +716,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .locale-eventi p {
     font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--color-gray);
-    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
     letter-spacing: 0.02em;
     line-height: 1.8;
 }
