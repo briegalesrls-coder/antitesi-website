@@ -640,6 +640,10 @@ h1, h2, h3, h4, h5, h6 {
     grid-row: span 2;
 }
 
+.gallery-item--large img {
+    object-position: center 40%;
+}
+
 .gallery-item--wide {
     grid-column: span 2;
 }
