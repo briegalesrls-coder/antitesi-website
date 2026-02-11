@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://antitesipizzeria.it/sitemap.xml
+Sitemap: https://www.antitesipizzeria.it/sitemap.xml

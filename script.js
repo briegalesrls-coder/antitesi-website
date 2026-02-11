@@ -623,6 +623,21 @@ const Analytics = {
             link.addEventListener('click', () => this.track('click_instagram', 'social', 'instagram'));
         });
 
+        // Facebook
+        document.querySelectorAll('a[href*="facebook.com"]').forEach(link => {
+            link.addEventListener('click', () => this.track('click_facebook', 'social', 'facebook'));
+        });
+
+        // Google Maps
+        document.querySelectorAll('a[href*="g.page"], a[href*="google.com/maps"]').forEach(link => {
+            link.addEventListener('click', () => this.track('click_google_maps', 'contact', 'maps'));
+        });
+
+        // Menu PDF download
+        document.querySelectorAll('a[href*="menu.pdf"]').forEach(link => {
+            link.addEventListener('click', () => this.track('download_menu_pdf', 'engagement', 'menu_pdf'));
+        });
+
         // Menu tab switch
         const menuTabsEl = document.querySelector('.menu-tabs');
         if (menuTabsEl) {

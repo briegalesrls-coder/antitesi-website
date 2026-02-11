@@ -835,6 +835,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('waitlist-form').addEventListener('submit', submitWaitlist);
 
+    // Contact panel tracking
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => BookingAnalytics.track('click_telefono', 'phone'));
+    });
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => BookingAnalytics.track('click_whatsapp', 'whatsapp'));
+    });
+
     // Start
     renderCalendar();
     caricaConfigurazione();
