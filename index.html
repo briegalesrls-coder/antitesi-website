@@ -5,14 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Antitesi Pizzeria - Tradizione autentica con tocco contemporaneo nel cuore di Frascati. Prenota il tuo tavolo.">
     <meta name="keywords" content="pizzeria, Frascati, Roma, pizza napoletana, prenotazione ristorante">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="google-site-verification" content="INSERISCI_CODICE_QUI">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.antitesipizzeria.it/">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Antitesi Pizzeria | Frascati">
     <meta property="og:description" content="Tradizione autentica con tocco contemporaneo. Prenota il tuo tavolo.">
-    <meta property="og:image" content="assets/images/og-image.jpg">
-    <meta property="og:url" content="https://www.antitesipizzeria.it">
+    <meta property="og:image" content="https://www.antitesipizzeria.it/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://www.antitesipizzeria.it/">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Antitesi Pizzeria">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Antitesi Pizzeria | Frascati">
+    <meta name="twitter:description" content="Tradizione autentica con tocco contemporaneo. Prenota il tuo tavolo.">
+    <meta name="twitter:image" content="https://www.antitesipizzeria.it/assets/images/og-image.jpg">
 
     <title>Antitesi Pizzeria | Frascati</title>
+
+    <!-- Google Analytics GA4 — Consent Mode v2 (cookieless default) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +91,7 @@
                 muted
                 loop
                 playsinline
-                preload="auto"
+                preload="metadata"
                 poster="assets/images/hero/pizza-hero.jpg"
                 class="hero-video"
             >
@@ -92,6 +117,7 @@
         </div>
     </section>
 
+    <main>
     <!-- Filosofia Section -->
     <section id="filosofia" class="section filosofia">
         <div class="container">
@@ -346,6 +372,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -410,14 +438,15 @@
         Prenota
     </a>
 
-    <!-- Structured Data SEO -->
+    <!-- Structured Data SEO — Restaurant -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Restaurant",
+        "@id": "https://www.antitesipizzeria.it/#restaurant",
         "name": "Antitesi Pizzeria",
-        "image": "https://antitesipizzeria.it/assets/images/og-image.jpg",
-        "url": "https://antitesipizzeria.it",
+        "image": "https://www.antitesipizzeria.it/assets/images/og-image.jpg",
+        "url": "https://www.antitesipizzeria.it",
         "telephone": "+393408854176",
         "address": {
             "@type": "PostalAddress",
@@ -453,9 +482,73 @@
             "https://www.facebook.com/antitesipizzeria"
         ],
         "acceptsReservations": "True",
-        "hasMenu": "https://antitesipizzeria.it/#menu"
+        "hasMenu": "https://www.antitesipizzeria.it/#menu"
     }
     </script>
+
+    <!-- Structured Data SEO — BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.antitesipizzeria.it/" },
+            { "@type": "ListItem", "position": 2, "name": "Menu", "item": "https://www.antitesipizzeria.it/#menu" },
+            { "@type": "ListItem", "position": 3, "name": "Prenota", "item": "https://www.antitesipizzeria.it/prenota.html" }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data SEO — FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quali sono gli orari di apertura di Antitesi Pizzeria?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Siamo aperti dal martedi alla domenica, dalle 19:30 a mezzanotte. Il lunedi siamo chiusi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come posso prenotare un tavolo?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Puoi prenotare online dal nostro sito, via WhatsApp al 340 885 4176, oppure chiamandoci direttamente allo stesso numero."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Gestite allergie e intolleranze alimentari?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si, il nostro staff e preparato per gestire allergie e intolleranze. Vi chiediamo di comunicarle al momento della prenotazione o all'arrivo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "C'e parcheggio nelle vicinanze?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si, ci sono diverse zone di parcheggio nel centro storico di Frascati a pochi minuti a piedi dal locale."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Utilizziamo cookie analitici per migliorare la tua esperienza. <a href="privacy.html">Privacy Policy</a></p>
+        <div class="cookie-banner-buttons">
+            <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accetta</button>
+            <button class="cookie-btn cookie-btn-reject" id="cookie-reject">Rifiuta</button>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

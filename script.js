@@ -586,3 +586,111 @@ const GoogleRating = {
 };
 
 GoogleRating.init();
+
+/* --------------------------------------------------------------------------
+   Analytics — Event Tracking (GA4)
+   -------------------------------------------------------------------------- */
+const Analytics = {
+    track(action, category, label) {
+        if (typeof gtag === 'function') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: label
+            });
+        }
+    },
+
+    init() {
+        // CTA Prenota (hero + sticky mobile + sticky desktop)
+        document.querySelectorAll('a[href="prenota.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                this.track('click_prenota_cta', 'engagement', link.closest('.hero') ? 'hero' : 'sticky');
+            });
+        });
+
+        // Telefono
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', () => this.track('click_telefono', 'contact', 'phone'));
+        });
+
+        // WhatsApp
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => this.track('click_whatsapp', 'contact', 'whatsapp'));
+        });
+
+        // Instagram
+        document.querySelectorAll('a[href*="instagram.com"]').forEach(link => {
+            link.addEventListener('click', () => this.track('click_instagram', 'social', 'instagram'));
+        });
+
+        // Menu tab switch
+        const menuTabsEl = document.querySelector('.menu-tabs');
+        if (menuTabsEl) {
+            menuTabsEl.addEventListener('click', (e) => {
+                const tab = e.target.closest('.menu-tab');
+                if (tab) this.track('menu_category_view', 'menu', tab.textContent.trim());
+            });
+        }
+
+        // Section scroll tracking
+        const sections = ['filosofia', 'locale', 'menu', 'pizza', 'contatti'];
+        const tracked = new Set();
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !tracked.has(entry.target.id)) {
+                    tracked.add(entry.target.id);
+                    this.track('scroll_to_section', 'engagement', entry.target.id);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) sectionObserver.observe(el);
+        });
+    }
+};
+
+Analytics.init();
+
+/* --------------------------------------------------------------------------
+   Cookie Consent — GDPR compliance
+   -------------------------------------------------------------------------- */
+const CookieConsent = {
+    init() {
+        const consent = localStorage.getItem('cookie_consent');
+
+        if (consent === 'accepted') {
+            // Utente ha gia accettato → attiva GA4 pieno
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', { analytics_storage: 'granted' });
+            }
+        } else if (!consent) {
+            // Nessuna scelta → mostra banner dopo 1.5s
+            setTimeout(() => {
+                const banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.add('visible');
+            }, 1500);
+        }
+        // Se 'rejected' → non fare nulla, GA4 resta in modalita cookieless
+
+        // Event listeners
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'cookie-accept') {
+                localStorage.setItem('cookie_consent', 'accepted');
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', { analytics_storage: 'granted' });
+                }
+                const banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.remove('visible');
+            }
+            if (e.target.id === 'cookie-reject') {
+                localStorage.setItem('cookie_consent', 'rejected');
+                const banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.remove('visible');
+            }
+        });
+    }
+};
+
+CookieConsent.init();

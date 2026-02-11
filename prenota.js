@@ -187,6 +187,7 @@ function selectDate(dayEl) {
     booking.dateShort = `${days[date.getDay()]} ${date.getDate()} ${monthsShort[date.getMonth()]}`;
 
     document.getElementById('to-step-2').disabled = false;
+    BookingAnalytics.track('booking_step_completed', 'data');
 }
 
 /* --------------------------------------------------------------------------
@@ -462,6 +463,7 @@ async function confirmBooking() {
     const originalText = btn.textContent;
     btn.textContent = 'Invio in corso...';
     btn.disabled = true;
+    BookingAnalytics.track('booking_submitted', `${booking.persons}p_${booking.time}`);
 
     // Prepara note speciali
     const noteSpeciali = {};
@@ -494,6 +496,7 @@ async function confirmBooking() {
         const result = await response.json();
 
         if (result.ok) {
+            BookingAnalytics.track('booking_success', `${booking.persons}p_${booking.time}`);
             showBookingSuccess();
         } else {
             showError(
@@ -720,6 +723,20 @@ function showWaitlistSuccess() {
 }
 
 /* --------------------------------------------------------------------------
+   Analytics — Booking Funnel Tracking (GA4)
+   -------------------------------------------------------------------------- */
+const BookingAnalytics = {
+    track(action, label) {
+        if (typeof gtag === 'function') {
+            gtag('event', action, {
+                event_category: 'booking',
+                event_label: label
+            });
+        }
+    }
+};
+
+/* --------------------------------------------------------------------------
    Initialize
    -------------------------------------------------------------------------- */
 
@@ -766,16 +783,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('to-step-3').addEventListener('click', () => {
         goToStep(3);
         caricaSlotOrari();
+        BookingAnalytics.track('booking_step_completed', 'persone');
     });
     document.getElementById('back-to-2').addEventListener('click', () => goToStep(2));
-    document.getElementById('to-step-4').addEventListener('click', () => goToStep(4));
+    document.getElementById('to-step-4').addEventListener('click', () => {
+        goToStep(4);
+        BookingAnalytics.track('booking_step_completed', 'orario');
+    });
     document.getElementById('back-to-3').addEventListener('click', () => goToStep(3));
     document.getElementById('to-summary').addEventListener('click', () => {
         if (validateForm()) {
             booking.hasDog = document.getElementById('has-dog').checked;
             booking.hasHighchair = document.getElementById('has-highchair').checked;
             booking.hasWheelchair = document.getElementById('has-wheelchair').checked;
+            BookingAnalytics.track('booking_step_completed', 'dati');
             goToStep(5);
+        } else {
+            BookingAnalytics.track('booking_error', 'validation');
         }
     });
     document.getElementById('back-to-5').addEventListener('click', () => goToStep(4));

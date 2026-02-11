@@ -4,7 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Prenota un tavolo da Antitesi Pizzeria a Frascati. Scegli data, orario e numero di persone.">
+    <meta name="theme-color" content="#0d0d0d">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.antitesipizzeria.it/prenota.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prenota un Tavolo | Antitesi Pizzeria">
+    <meta property="og:description" content="Prenota un tavolo da Antitesi Pizzeria a Frascati. Scegli data, orario e numero di persone.">
+    <meta property="og:image" content="https://www.antitesipizzeria.it/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://www.antitesipizzeria.it/prenota.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Antitesi Pizzeria">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prenota un Tavolo | Antitesi Pizzeria">
+    <meta name="twitter:description" content="Prenota un tavolo da Antitesi Pizzeria a Frascati. Scegli data, orario e numero di persone.">
+    <meta name="twitter:image" content="https://www.antitesipizzeria.it/assets/images/og-image.jpg">
+
     <title>Prenota | Antitesi Pizzeria</title>
+
+    <!-- Google Analytics GA4 — Consent Mode v2 (cookieless default) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -414,6 +444,43 @@
             </form>
         </div>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Utilizziamo cookie analitici per migliorare la tua esperienza. <a href="privacy.html">Privacy Policy</a></p>
+        <div class="cookie-banner-buttons">
+            <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accetta</button>
+            <button class="cookie-btn cookie-btn-reject" id="cookie-reject">Rifiuta</button>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Logic -->
+    <script>
+    (function() {
+        var consent = localStorage.getItem('cookie_consent');
+        if (consent === 'accepted') {
+            if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: 'granted' });
+        } else if (!consent) {
+            setTimeout(function() {
+                var banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.add('visible');
+            }, 1500);
+        }
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'cookie-accept') {
+                localStorage.setItem('cookie_consent', 'accepted');
+                if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: 'granted' });
+                var banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.remove('visible');
+            }
+            if (e.target.id === 'cookie-reject') {
+                localStorage.setItem('cookie_consent', 'rejected');
+                var banner = document.getElementById('cookie-banner');
+                if (banner) banner.classList.remove('visible');
+            }
+        });
+    })();
+    </script>
 
     <!-- Scripts -->
     <script src="prenota.js"></script>
