@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=15">
+    <link rel="stylesheet" href="styles.css?v=16">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
@@ -184,188 +184,12 @@
                 <h2 class="section-title">Menu</h2>
             </div>
 
-            <div class="menu-tabs">
-                <button class="menu-tab active" data-category="pizze-classiche">Classiche</button>
-                <button class="menu-tab" data-category="pizze-speciali">Speciali</button>
-                <button class="menu-tab" data-category="fritti">Fritti</button>
-                <button class="menu-tab" data-category="dolci">Dolci</button>
-            </div>
-
-            <div class="menu-content">
-                <!-- Pizze Classiche -->
-                <div class="menu-category active" id="pizze-classiche">
-                    <div class="menu-grid">
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/margherita.jpg" alt="Margherita" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Margherita</h3>
-                                    <span class="menu-item-price">&euro;8</span>
-                                </div>
-                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Fior di Latte, basilico fresco, olio EVO</p>
-                                <span class="menu-item-badge">DOP</span>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/marinara.jpg" alt="Marinara" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Marinara</h3>
-                                    <span class="menu-item-price">&euro;7</span>
-                                </div>
-                                <p class="menu-item-desc">Pomodoro San Marzano DOP, aglio, origano, olio EVO</p>
-                                <span class="menu-item-badge">Vegana</span>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/bufala.jpg" alt="Bufalina" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Bufalina</h3>
-                                    <span class="menu-item-price">&euro;12</span>
-                                </div>
-                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Mozzarella di Bufala Campana DOP, basilico</p>
-                                <span class="menu-item-badge">DOP</span>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/diavola.jpg" alt="Diavola" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Diavola</h3>
-                                    <span class="menu-item-price">&euro;10</span>
-                                </div>
-                                <p class="menu-item-desc">Pomodoro San Marzano DOP, Fior di Latte, salame piccante calabrese</p>
-                                <span class="menu-item-badge menu-item-badge--spicy">Piccante</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Pizze Speciali -->
-                <div class="menu-category" id="pizze-speciali">
-                    <div class="menu-grid">
-                        <article class="menu-item menu-item--featured">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/antitesi.jpg" alt="Antitesi" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Antitesi</h3>
-                                    <span class="menu-item-price">&euro;14</span>
-                                </div>
-                                <p class="menu-item-desc">La nostra signature: crema di zucca, salsiccia di Norcia, provola affumicata, noci tostate</p>
-                                <span class="menu-item-badge menu-item-badge--signature">Signature</span>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/cacio-pepe.jpg" alt="Cacio e Pepe" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Cacio e Pepe</h3>
-                                    <span class="menu-item-price">&euro;13</span>
-                                </div>
-                                <p class="menu-item-desc">Crema di Pecorino Romano DOP, pepe nero macinato al momento, guanciale croccante</p>
-                                <span class="menu-item-badge">Roma</span>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/mortadella.jpg" alt="Mortadella e Pistacchio" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Mortadella &amp; Pistacchio</h3>
-                                    <span class="menu-item-price">&euro;13</span>
-                                </div>
-                                <p class="menu-item-desc">Fior di Latte, mortadella Bologna IGP, crema di pistacchio di Bronte</p>
-                                <span class="menu-item-badge">IGP</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Fritti -->
-                <div class="menu-category" id="fritti">
-                    <div class="menu-grid">
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/fritto-misto.jpg" alt="Fritto Misto" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Fritto Misto</h3>
-                                    <span class="menu-item-price">&euro;8</span>
-                                </div>
-                                <p class="menu-item-desc">Crocchè, arancini, frittatine di pasta, montanarine</p>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/supplì.jpg" alt="Supplì" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Supplì al Telefono</h3>
-                                    <span class="menu-item-price">&euro;3</span>
-                                </div>
-                                <p class="menu-item-desc">Il classico romano con cuore filante di mozzarella</p>
-                                <span class="menu-item-badge">Roma</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Dolci -->
-                <div class="menu-category" id="dolci">
-                    <div class="menu-grid">
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/tiramisu.jpg" alt="Tiramisù" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Tiramisù</h3>
-                                    <span class="menu-item-price">&euro;6</span>
-                                </div>
-                                <p class="menu-item-desc">Ricetta tradizionale con mascarpone fresco e cacao amaro</p>
-                            </div>
-                        </article>
-
-                        <article class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="assets/images/menu/nutella.jpg" alt="Pizza Nutella" loading="lazy">
-                            </div>
-                            <div class="menu-item-content">
-                                <div class="menu-item-header">
-                                    <h3>Pizza Nutella</h3>
-                                    <span class="menu-item-price">&euro;7</span>
-                                </div>
-                                <p class="menu-item-desc">Impasto dolce con Nutella e granella di nocciole</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
+            <!-- Tabs e contenuto generati dinamicamente da menu.json -->
+            <div class="menu-tabs"></div>
+            <div class="menu-content"></div>
 
             <div class="menu-footer">
-                <a href="assets/menu-antitesi.pdf" class="btn btn-outline" download>
+                <a href="assets/menu/menu.pdf" class="btn btn-outline" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <polyline points="7 10 12 15 17 10"/>

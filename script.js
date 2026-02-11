@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Navbar.init();
     MobileMenu.init();
     SmoothScroll.init();
-    MenuTabs.init();
+    DynamicMenu.init();
     ScrollReveal.init();
     Gallery.init();
     MobileCta.init();
@@ -145,35 +145,122 @@ const SmoothScroll = {
 };
 
 /* --------------------------------------------------------------------------
-   Menu Tabs
+   Dynamic Menu — Carica il menù da menu.json
    -------------------------------------------------------------------------- */
-const MenuTabs = {
-    tabs: null,
-    categories: null,
+const DynamicMenu = {
+    container: null,
+    tabsContainer: null,
 
-    init() {
-        this.tabs = document.querySelectorAll('.menu-tab');
-        this.categories = document.querySelectorAll('.menu-category');
+    async init() {
+        this.container = document.querySelector('.menu-content');
+        this.tabsContainer = document.querySelector('.menu-tabs');
+        if (!this.container || !this.tabsContainer) return;
 
-        if (!this.tabs.length || !this.categories.length) return;
+        try {
+            const resp = await fetch('menu.json');
+            const data = await resp.json();
+            this.render(data);
+        } catch (e) {
+            console.error('Errore caricamento menu:', e);
+        }
+    },
 
-        this.tabs.forEach(tab => {
-            tab.addEventListener('click', () => this.switchTab(tab));
+    render(data) {
+        this.tabsContainer.innerHTML = '';
+        this.container.innerHTML = '';
+
+        data.categorie.forEach((cat, i) => {
+            // Tab
+            const btn = document.createElement('button');
+            btn.className = 'menu-tab' + (i === 0 ? ' active' : '');
+            btn.dataset.category = cat.id;
+            btn.textContent = cat.nome;
+            btn.addEventListener('click', () => this.switchTab(btn));
+            this.tabsContainer.appendChild(btn);
+
+            // Category content
+            const section = document.createElement('div');
+            section.className = 'menu-category' + (i === 0 ? ' active' : '');
+            section.id = cat.id;
+
+            const grid = document.createElement('div');
+            grid.className = 'menu-grid';
+
+            cat.piatti.forEach(piatto => {
+                grid.appendChild(this.createItem(piatto));
+            });
+
+            section.appendChild(grid);
+
+            // Nota a fondo categoria
+            if (cat.nota) {
+                const nota = document.createElement('p');
+                nota.className = 'menu-category-nota';
+                nota.textContent = cat.nota;
+                section.appendChild(nota);
+            }
+
+            this.container.appendChild(section);
         });
+
+        // Attiva animazioni scroll sui nuovi elementi
+        this.addRevealAnimations();
+    },
+
+    createItem(piatto) {
+        const article = document.createElement('article');
+        article.className = 'menu-item';
+
+        let html = '';
+
+        if (piatto.immagine) {
+            html += `<div class="menu-item-image">
+                <img src="assets/images/menu/${piatto.immagine}" alt="${piatto.nome}" loading="lazy">
+            </div>`;
+        }
+
+        const prezzoDisplay = piatto.nota_prezzo || `&euro;${piatto.prezzo}`;
+
+        html += `<div class="menu-item-content">
+            <div class="menu-item-header">
+                <h3>${piatto.nome}</h3>
+                <span class="menu-item-price">${prezzoDisplay}</span>
+            </div>`;
+
+        if (piatto.descrizione) {
+            html += `<p class="menu-item-desc">${piatto.descrizione}</p>`;
+        }
+
+        if (piatto.badge && piatto.badge.length) {
+            piatto.badge.forEach(b => {
+                let cls = 'menu-item-badge';
+                if (b === 'Piccante') cls += ' menu-item-badge--spicy';
+                if (b === 'Premiato') cls += ' menu-item-badge--signature';
+                html += `<span class="${cls}">${b}</span>`;
+            });
+        }
+
+        html += '</div>';
+        article.innerHTML = html;
+        return article;
     },
 
     switchTab(clickedTab) {
         const category = clickedTab.dataset.category;
-
-        // Update active tab
-        this.tabs.forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
         clickedTab.classList.add('active');
-
-        // Update active category
-        this.categories.forEach(cat => {
+        document.querySelectorAll('.menu-category').forEach(cat => {
             cat.classList.remove('active');
-            if (cat.id === category) {
-                cat.classList.add('active');
+            if (cat.id === category) cat.classList.add('active');
+        });
+    },
+
+    addRevealAnimations() {
+        document.querySelectorAll('.menu-item').forEach((el, index) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${index * 0.1}s`;
+            if (ScrollReveal.observer) {
+                ScrollReveal.observer.observe(el);
             }
         });
     }
