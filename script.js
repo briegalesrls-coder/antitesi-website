@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     DynamicMenu.init();
     ScrollReveal.init();
     Gallery.init();
-    MobileCta.init();
+    StickyCta.init();
 });
 
 /* --------------------------------------------------------------------------
@@ -440,15 +440,17 @@ const Gallery = {
 };
 
 /* --------------------------------------------------------------------------
-   Mobile Sticky CTA - Appare dopo scroll oltre la hero
+   Sticky CTA - Appare dopo scroll oltre la hero (mobile + desktop)
    -------------------------------------------------------------------------- */
-const MobileCta = {
-    cta: null,
+const StickyCta = {
+    mobileCta: null,
+    desktopCta: null,
     heroHeight: 0,
 
     init() {
-        this.cta = document.getElementById('mobileCta');
-        if (!this.cta) return;
+        this.mobileCta = document.getElementById('mobileCta');
+        this.desktopCta = document.getElementById('desktopCta');
+        if (!this.mobileCta && !this.desktopCta) return;
 
         const hero = document.getElementById('hero');
         if (hero) {
@@ -459,10 +461,12 @@ const MobileCta = {
     },
 
     handleScroll() {
-        if (window.scrollY > this.heroHeight * 0.8) {
-            this.cta.classList.add('visible');
-        } else {
-            this.cta.classList.remove('visible');
+        const show = window.scrollY > this.heroHeight * 0.8;
+        if (this.mobileCta) {
+            this.mobileCta.classList.toggle('visible', show);
+        }
+        if (this.desktopCta) {
+            this.desktopCta.classList.toggle('visible', show);
         }
     }
 };
