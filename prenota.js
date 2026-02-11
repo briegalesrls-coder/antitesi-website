@@ -741,6 +741,12 @@ const BookingAnalytics = {
    -------------------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Booking gate: prima del 17/02/2026 redirect a telefonata
+    if (new Date() < new Date('2026-02-17T00:00:00')) {
+        window.location.href = 'tel:+393408854176';
+        return;
+    }
+
     stepTabs = document.querySelectorAll('.step-tab');
     stepContents = document.querySelectorAll('.step-content');
 

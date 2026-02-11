@@ -669,6 +669,16 @@ const Analytics = {
 Analytics.init();
 
 /* --------------------------------------------------------------------------
+   Booking Gate — Prenotazioni attive dal 17 febbraio 2026
+   Prima di quella data, "Prenota" chiama direttamente il ristorante.
+   -------------------------------------------------------------------------- */
+if (new Date() < new Date('2026-02-17T00:00:00')) {
+    document.querySelectorAll('a[href="prenota.html"]').forEach(link => {
+        link.href = 'tel:+393408854176';
+    });
+}
+
+/* --------------------------------------------------------------------------
    Cookie Consent — GDPR compliance
    -------------------------------------------------------------------------- */
 const CookieConsent = {
