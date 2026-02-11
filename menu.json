@@ -9,28 +9,28 @@
           "nome": "Supplì Classico",
           "prezzo": "3.50",
           "descrizione": "Pomodoro San Marzano DOP, ragù, salsiccia di maiale paesano, parmigiano reggiano DOP 24 mesi, fior di latte a latte crudo",
-          "immagine": "fritti/suppli-classico.jpg",
+          "immagine": "fritti/suppliclassico.jpg",
           "badge": []
         },
         {
           "nome": "Kubik",
           "prezzo": "3",
           "descrizione": "Ricotta di bufala, Parmigiano Reggiano DOP 24 mesi, cuore piccante di 'nduja, pepe",
-          "immagine": null,
+          "immagine": "fritti/kubik.jpg",
           "badge": []
         },
         {
           "nome": "Supplì Zucca e Guanciale",
           "prezzo": "4",
           "descrizione": "Zucca mantovana, cipolla, paprika, guanciale Pork'N'Roll, cuore di provola affumicata, zeste di arancia",
-          "immagine": null,
+          "immagine": "fritti/zuccaguanciale.jpg",
           "badge": []
         },
         {
           "nome": "Quasi Primavera",
           "prezzo": "4.50",
           "descrizione": "Involtino di pizza fritto, cavolo cappuccio, carota, cipolla, vino di riso, pepe bianco, salsa agrodolce",
-          "immagine": null,
+          "immagine": "fritti/Involtino_Primavera.jpg",
           "badge": ["Vegano"]
         },
         {
@@ -65,7 +65,7 @@
           "nome": "Cosacca",
           "prezzo": "10",
           "descrizione": "Pomodoro San Marzano DOP, pomodorini, basilico, pecorino romano DOP, parmigiano Reggiano DOP 24 mesi",
-          "immagine": null,
+          "immagine": "tradizione/cosacca.jpg",
           "badge": ["Vegetariana"]
         },
         {
@@ -79,7 +79,7 @@
           "nome": "Napoli",
           "prezzo": "11",
           "descrizione": "Pomodoro San Marzano DOP, fior di latte a latte crudo, alici di Cetara, origano",
-          "immagine": null,
+          "immagine": "tradizione/napoli.jpg",
           "badge": []
         },
         {
@@ -100,21 +100,21 @@
           "nome": "Bufala",
           "prezzo": "12",
           "descrizione": "Pomodoro San Marzano DOP, bufala, basilico, olio EVO",
-          "immagine": "tradizione/bufala.jpg",
+          "immagine": null,
           "badge": ["Vegetariana"]
         },
         {
           "nome": "Amatriciana",
           "prezzo": "12",
           "descrizione": "Pomodoro San Marzano DOP, guanciale Pork'N'Roll, pepe e pecorino romano",
-          "immagine": null,
+          "immagine": "tradizione/amatriciana.jpg",
           "badge": []
         },
         {
           "nome": "Cotto e Patate",
           "prezzo": "12",
           "descrizione": "Patate gialle, fior di latte a latte crudo, basilico, prosciutto cotto affumicato Pork'n'Roll, rosmarino fritto",
-          "immagine": null,
+          "immagine": "tradizione/cottoepatate.jpg",
           "badge": []
         }
       ]
@@ -142,14 +142,14 @@
           "nome": "Cenerentola",
           "prezzo": "14",
           "descrizione": "Vellutata di zucca mantovana, fior di latte a latte crudo, salsiccia paesana, robiola, polvere di cipolla bruciata, rosmarino",
-          "immagine": null,
+          "immagine": "innovazione/cenerentola.jpg",
           "badge": []
         },
         {
           "nome": "Cinque Formaggi",
           "prezzo": "15",
           "descrizione": "Mozzarella Bufala, fior di latte a latte crudo, blu di bufala, parmigiano Reggiano DOP 24 mesi, provola affumicata, composta dello chef, timo",
-          "immagine": null,
+          "immagine": "innovazione/cinqueformaggi.jpg",
           "badge": ["Vegetariana"]
         },
         {
@@ -185,14 +185,14 @@
           "prezzo": "6",
           "nota_prezzo": "€6 spicchio · €30 intera",
           "descrizione": "Trancio di pizza dolce, namelaka di cioccolato bianco, crema inglese alla gianduia, gel di lamponi, nocciole tostate, lamponi, menta",
-          "immagine": null,
+          "immagine": "dolci/pizza_dolce.jpg",
           "badge": ["Premiato"]
         },
         {
           "nome": "Brownie",
           "prezzo": "6",
           "descrizione": "Brownie cioccolato e nocciole accompagnato da crema all'arancia",
-          "immagine": null,
+          "immagine": "dolci/brownie.jpg",
           "badge": []
         },
         {
@@ -206,7 +206,7 @@
           "nome": "Cheesecake Caramello Salato e Arachidi",
           "prezzo": "6",
           "descrizione": "",
-          "immagine": null,
+          "immagine": "dolci/cheescake.jpg",
           "badge": []
         }
       ]
