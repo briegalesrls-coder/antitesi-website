@@ -640,10 +640,6 @@ h1, h2, h3, h4, h5, h6 {
     grid-row: span 2;
 }
 
-.gallery-item--large img {
-    object-position: center 40%;
-}
-
 .gallery-item--wide {
     grid-column: span 2;
 }
@@ -652,6 +648,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     transition: transform var(--transition-slow);
 }
 
