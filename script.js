@@ -355,3 +355,53 @@ const LazyLoad = {
 
 // Initialize lazy loading
 LazyLoad.init();
+
+/* --------------------------------------------------------------------------
+   Google Rating - Aggiornamento dinamico da Google Places API
+   -------------------------------------------------------------------------- */
+const GoogleRating = {
+    // Place ID di Antitesi Pizzeria (da Google Maps)
+    PLACE_ID: 'ChIJK4m-SrRkLxMRCZkE1JbIYEg',
+    // API Key Google (impostare per abilitare aggiornamento automatico)
+    API_KEY: '',
+
+    init() {
+        if (!this.API_KEY) return;
+
+        const el = document.getElementById('google-rating');
+        if (!el) return;
+
+        this.fetchRating(el);
+    },
+
+    async fetchRating(el) {
+        try {
+            const url = `https://places.googleapis.com/v1/places/${this.PLACE_ID}?fields=rating,userRatingCount&key=${this.API_KEY}`;
+            const resp = await fetch(url, {
+                headers: { 'X-Goog-FieldMask': 'rating,userRatingCount' }
+            });
+            if (!resp.ok) return;
+
+            const data = await resp.json();
+            if (data.rating) {
+                el.textContent = data.rating.toFixed(1);
+                // Aggiorna anche structured data
+                const schema = document.querySelector('script[type="application/ld+json"]');
+                if (schema) {
+                    try {
+                        const sd = JSON.parse(schema.textContent);
+                        sd.aggregateRating.ratingValue = data.rating.toFixed(1);
+                        if (data.userRatingCount) {
+                            sd.aggregateRating.reviewCount = String(data.userRatingCount);
+                        }
+                        schema.textContent = JSON.stringify(sd, null, 4);
+                    } catch(e) {}
+                }
+            }
+        } catch(e) {
+            // Silenzioso: mantiene il valore hardcoded
+        }
+    }
+};
+
+GoogleRating.init();
