@@ -104,6 +104,7 @@ async function caricaConfigurazione() {
         const data = await res.json();
 
         if (data.ok) {
+            config.bookingEnabled = data.booking_enabled || false;
             config.maxPersone = data.max_persone || 8;
             config.patternSettimanale = data.pattern_settimanale || config.patternSettimanale;
             config.chiusureStraordinarie = data.chiusure_straordinarie || [];
@@ -740,9 +741,17 @@ const BookingAnalytics = {
    Initialize
    -------------------------------------------------------------------------- */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Booking gate: prima del 17/02/2026 redirect a telefonata
-    if (new Date() < new Date('2026-02-17T00:00:00')) {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Booking gate: controlla se il widget è abilitato dal backend
+    try {
+        const gateRes = await fetch(`${API_BASE_URL}/api/website/config`);
+        const gateData = gateRes.ok ? await gateRes.json() : {};
+        if (!gateData.booking_enabled) {
+            window.location.href = 'tel:+393408854176';
+            return;
+        }
+    } catch {
+        // Se API non raggiungibile, fallback a telefonata
         window.location.href = 'tel:+393408854176';
         return;
     }

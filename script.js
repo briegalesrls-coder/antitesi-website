@@ -669,14 +669,28 @@ const Analytics = {
 Analytics.init();
 
 /* --------------------------------------------------------------------------
-   Booking Gate — Prenotazioni attive dal 17 febbraio 2026
-   Prima di quella data, "Prenota" chiama direttamente il ristorante.
+   Booking Gate — Controlla se il widget prenotazione è abilitato dal backend.
+   Se disabilitato, "Prenota" chiama direttamente il ristorante.
    -------------------------------------------------------------------------- */
-if (new Date() < new Date('2026-02-17T00:00:00')) {
-    document.querySelectorAll('a[href="prenota.html"]').forEach(link => {
-        link.href = 'tel:+393408854176';
-    });
-}
+(async function bookingGate() {
+    const API_BASE = window.location.hostname === 'localhost'
+        ? 'http://localhost:8000'
+        : 'https://pizzeria-prenotazioni-production.up.railway.app';
+    try {
+        const res = await fetch(`${API_BASE}/api/website/config`);
+        const data = res.ok ? await res.json() : {};
+        if (!data.booking_enabled) {
+            document.querySelectorAll('a[href="prenota.html"]').forEach(link => {
+                link.href = 'tel:+393408854176';
+            });
+        }
+    } catch {
+        // API non raggiungibile → fallback a telefonata
+        document.querySelectorAll('a[href="prenota.html"]').forEach(link => {
+            link.href = 'tel:+393408854176';
+        });
+    }
+})();
 
 /* --------------------------------------------------------------------------
    Cookie Consent — GDPR compliance
