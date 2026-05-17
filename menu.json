@@ -3,7 +3,7 @@
     {
       "id": "fritti",
       "nome": "Fritti",
-      "nota": "Tutti i fritti sono fatti da Antitesi con prodotti selezionati con amore per voi.",
+      "nota": "Tutti i fritti sono fatti da Antitesi con prodotti selezionati con amore per voi. Il pomodoro e i salumi sono delle aziende agricole \"Casa Marrazzo\" e \"Pork'n'Roll\" e la selezione di oli sono di piccole eccellenze italiane.",
       "piatti": [
         {
           "nome": "Supplì Classico",
@@ -20,18 +20,26 @@
           "badge": []
         },
         {
-          "nome": "Supplì Zucca e Guanciale",
-          "prezzo": "4",
-          "descrizione": "Zucca mantovana, cipolla, paprika, guanciale Pork'N'Roll, cuore di provola affumicata, zeste di arancia",
-          "immagine": "fritti/zuccaguanciale.jpg",
-          "badge": []
+          "nome": "Supplì Pomodoro e Basilico",
+          "prezzo": "3.50",
+          "descrizione": "Pomodoro San Marzano DOP, parmigiano reggiano DOP 24 mesi, fior di latte a latte crudo, basilico",
+          "immagine": null,
+          "badge": ["Vegetariano"]
         },
         {
-          "nome": "Quasi Primavera",
+          "nome": "Supplì Asparago e Timo",
+          "prezzo": "4",
+          "descrizione": "Asparago verde, timo, punte di asparago al burro, fior di latte a latte crudo, parmigiano reggiano DOP 24 mesi",
+          "immagine": null,
+          "badge": ["Vegetariano"]
+        },
+        {
+          "nome": "Trancio di Focaccia Pugliese",
           "prezzo": "4.50",
-          "descrizione": "Involtino di pizza fritto, cavolo cappuccio, carota, cipolla, vino di riso, pepe bianco, salsa agrodolce",
-          "immagine": "fritti/Involtino_Primavera.jpg",
-          "badge": ["Vegano"]
+          "descrizione": "Patate bianche, origano, pomodoro ciliegino, olio EVO \"Sabino Leone\"",
+          "immagine": null,
+          "badge": ["Vegano"],
+          "nota_extra": "In arrivo... Luglio 2026"
         },
         {
           "nome": "Chips Classica",
@@ -41,7 +49,7 @@
           "badge": ["Vegano"]
         },
         {
-          "nome": "Chips alla Paprika",
+          "nome": "Chips Pepe Rosa e Lime",
           "prezzo": "4.50",
           "descrizione": "",
           "immagine": null,
@@ -52,28 +60,14 @@
     {
       "id": "tradizione",
       "nome": "Tradizione",
-      "nota": null,
+      "nota": "Opzione vegana disponibile: mozzarella Bio di anacardo e mandorle (+1€)",
       "piatti": [
         {
           "nome": "Margherita",
-          "prezzo": "8",
+          "prezzo": "9",
           "descrizione": "Pomodoro San Marzano DOP, fior di latte a latte crudo, basilico, olio EVO",
           "immagine": "tradizione/margherita.jpg",
-          "badge": ["Vegetariana"]
-        },
-        {
-          "nome": "Cosacca",
-          "prezzo": "10",
-          "descrizione": "Pomodoro San Marzano DOP, pomodorini, basilico, pecorino romano DOP, parmigiano Reggiano DOP 24 mesi",
-          "immagine": "tradizione/cosacca.jpg",
-          "badge": ["Vegetariana"]
-        },
-        {
-          "nome": "Provola e Pepe",
-          "prezzo": "10",
-          "descrizione": "Pomodoro San Marzano DOP, basilico, provola affumicata, selezione di pepi Antitesi, olio EVO",
-          "immagine": null,
-          "badge": ["Vegetariana"]
+          "badge": ["Vegetariana", "Vegano"]
         },
         {
           "nome": "Napoli",
@@ -83,18 +77,11 @@
           "badge": []
         },
         {
-          "nome": "Boscaiola",
-          "prezzo": "11",
-          "descrizione": "Funghi Champignon, fior di latte a latte crudo, salsiccia di maiale paesano",
+          "nome": "Provola e Pepe",
+          "prezzo": "10",
+          "descrizione": "Pomodoro San Marzano DOP, basilico, provola affumicata, selezione di pepi Antitesi, olio EVO",
           "immagine": null,
-          "badge": []
-        },
-        {
-          "nome": "Diavola",
-          "prezzo": "11",
-          "descrizione": "Pomodoro San Marzano DOP, basilico, fior di latte a latte crudo, salame piccante, olive taggiasche",
-          "immagine": "tradizione/diavola.jpg",
-          "badge": ["Piccante"]
+          "badge": ["Vegetariana"]
         },
         {
           "nome": "Bufala",
@@ -104,17 +91,38 @@
           "badge": ["Vegetariana"]
         },
         {
-          "nome": "Amatriciana",
+          "nome": "Diavola",
           "prezzo": "12",
-          "descrizione": "Pomodoro San Marzano DOP, guanciale Pork'N'Roll, pepe e pecorino romano",
-          "immagine": "tradizione/amatriciana.jpg",
+          "descrizione": "Pomodoro San Marzano DOP, basilico, fior di latte a latte crudo, salame piccante, olive taggiasche",
+          "immagine": "tradizione/diavola.jpg",
           "badge": []
         },
         {
-          "nome": "Cotto e Patate",
+          "nome": "Boscaiola",
           "prezzo": "12",
-          "descrizione": "Patate gialle, fior di latte a latte crudo, basilico, prosciutto cotto affumicato Pork'n'Roll, rosmarino fritto",
-          "immagine": "tradizione/cottoepatate.jpg",
+          "descrizione": "Funghi champignon, fior di latte a latte crudo, salsiccia di maiale paesano",
+          "immagine": null,
+          "badge": []
+        },
+        {
+          "nome": "Crostino",
+          "prezzo": "12",
+          "descrizione": "Prosciutto cotto affumicato \"Pork'n'Roll\", fior di latte a latte crudo",
+          "immagine": null,
+          "badge": []
+        },
+        {
+          "nome": "Funghi",
+          "prezzo": "11",
+          "descrizione": "Pomodoro San Marzano DOP, fior di latte a latte crudo, funghi champignon",
+          "immagine": null,
+          "badge": ["Vegetariana", "Vegano"]
+        },
+        {
+          "nome": "Fiori e Alici",
+          "prezzo": "12",
+          "descrizione": "Fiori di zucca, fior di latte a latte crudo, alici di Cetara",
+          "immagine": null,
           "badge": []
         }
       ]
@@ -122,56 +130,56 @@
     {
       "id": "innovazione",
       "nome": "Innovazione",
-      "nota": null,
+      "nota": "Opzione vegana disponibile: mozzarella Bio di anacardo e mandorle (+1€)",
       "piatti": [
         {
-          "nome": "Nel Bosco di Antitesi",
+          "nome": "Treccia",
+          "prezzo": "14",
+          "descrizione": "Pomodoro San Marzano DOP, treccia di bufala, basilico, parmigiano Reggiano DOP 24 mesi",
+          "immagine": null,
+          "badge": ["Vegetariana"]
+        },
+        {
+          "nome": "Castelli Romani",
           "prezzo": "16",
-          "descrizione": "Crema di porcini, fior di latte a latte crudo, pioppini arrosto, gialletto fritto, fonduta di taleggio DOP, prezzemolo",
-          "immagine": "innovazione/nel-bosco-di-antitesi.jpg",
-          "badge": ["Vegetariana"]
-        },
-        {
-          "nome": "Scilla e Portofino",
-          "prezzo": "14",
-          "descrizione": "Provola affumicata, patate gialle, pesto genovese, pesto di pomodoro secco, parmigiano Reggiano DOP 24 mesi, pinoli tostati, basilico",
-          "immagine": "innovazione/scilla-e-portofino.jpg",
-          "badge": ["Vegetariana"]
-        },
-        {
-          "nome": "Cenerentola",
-          "prezzo": "14",
-          "descrizione": "Vellutata di zucca mantovana, fior di latte a latte crudo, salsiccia paesana, robiola, polvere di cipolla bruciata, rosmarino",
-          "immagine": "innovazione/cenerentola.jpg",
+          "descrizione": "Provola affumicata, basilico, porchetta di Ariccia I.G.P, salsa di nespole, finocchietto, mandorle",
+          "immagine": null,
           "badge": []
         },
         {
-          "nome": "Cinque Formaggi",
+          "nome": "Capriccio(sa) di Antitesi",
+          "prezzo": "16",
+          "descrizione": "Fior di latte a latte crudo, prosciutto cotto affumicato \"Pork'n'Roll\", basilico, tuorlo marinato, pomodorini confit, terra di olive nere, funghi champignon",
+          "immagine": null,
+          "badge": []
+        },
+        {
+          "nome": "Arianna in Wonderland",
           "prezzo": "15",
-          "descrizione": "Mozzarella Bufala, fior di latte a latte crudo, blu di bufala, parmigiano Reggiano DOP 24 mesi, provola affumicata, composta dello chef, timo",
-          "immagine": "innovazione/cinqueformaggi.jpg",
-          "badge": ["Vegetariana"]
+          "descrizione": "Passata di pomodoro giallo, salsiccia paesana, fior di latte a latte crudo, parmigiano reggiano DOP 24 mesi, basilico, ricotta, lime, prezzemolo fritto",
+          "immagine": null,
+          "badge": []
         },
         {
-          "nome": "Dolce Domenica",
+          "nome": "Asparago Supreme",
+          "prezzo": "16",
+          "descrizione": "Crema di asparago, fior di latte a latte crudo, punte di asparago, fiori di zucca, salsa di asparago e scalogno, mandorle",
+          "immagine": null,
+          "badge": ["Vegano"]
+        },
+        {
+          "nome": "Romana Anni 80",
           "prezzo": "15",
-          "descrizione": "Stracotto di manzo e cipolla alla genovese, provola affumicata, parmigiano Reggiano DOP 24 mesi, basilico, pepe",
-          "immagine": "innovazione/dolce-domenica.jpg",
+          "descrizione": "Pomodoro San Marzano DOP, treccia di bufala, origano, olive taggiasche, alici di Cetara, battuto romano, terra di capperi",
+          "immagine": null,
           "badge": []
         },
         {
-          "nome": "Tonno e Cipolla",
+          "nome": "Tropeana",
           "prezzo": "15",
-          "descrizione": "Crema di cipolla, tonno Delfino Battista, fior di latte a latte crudo, gel di cipolla rossa con aceto di lamponi, terra di olive, polvere di cipolla bruciata, basilico",
-          "immagine": "innovazione/tonno-e-cipolla.jpg",
-          "badge": []
-        },
-        {
-          "nome": "Romana ad Alta Quota",
-          "prezzo": "14",
-          "descrizione": "Carciofi arrosto al vino, fior di latte a latte crudo, speck IGP riserva, pecorino romano, carciofo fritto, menta, pepe",
-          "immagine": "innovazione/romana-ad-alta-quota.jpg",
-          "badge": []
+          "descrizione": "Cipolla rossa caramellata, bufala, basilico, olive taggiasche, gel di cipolla rossa, cipolla di Tropea IGP in osmosi",
+          "immagine": null,
+          "badge": ["Vegetariana", "Vegano"]
         }
       ]
     },
@@ -190,8 +198,8 @@
         },
         {
           "nome": "Brownie",
-          "prezzo": "6",
-          "descrizione": "Brownie cioccolato e nocciole accompagnato da crema all'arancia",
+          "prezzo": "6.50",
+          "descrizione": "Brownie cioccolato e nocciole con panna montata e lamponi",
           "immagine": "dolci/brownie.jpg",
           "badge": []
         },
@@ -203,8 +211,8 @@
           "badge": []
         },
         {
-          "nome": "Cheesecake Caramello Salato e Arachidi",
-          "prezzo": "6",
+          "nome": "Cheesecake Mango e Passion Fruit",
+          "prezzo": "6.50",
           "descrizione": "",
           "immagine": "dolci/cheescake.jpg",
           "badge": []
