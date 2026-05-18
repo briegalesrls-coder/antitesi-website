@@ -34,14 +34,6 @@
           "badge": ["Vegetariano"]
         },
         {
-          "nome": "Trancio di Focaccia Pugliese",
-          "prezzo": "4.50",
-          "descrizione": "Patate bianche, origano, pomodoro ciliegino, olio EVO \"Sabino Leone\"",
-          "immagine": null,
-          "badge": ["Vegano"],
-          "nota_extra": "In arrivo... Luglio 2026"
-        },
-        {
           "nome": "Chips Classica",
           "prezzo": "4",
           "descrizione": "",
