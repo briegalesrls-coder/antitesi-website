@@ -111,7 +111,6 @@ async function caricaConfigurazione() {
             config.fascePrenotazione = data.fasce_prenotazione || {};
             config.waitlistEnabled = data.waitlist_enabled || false;
             config.configLoaded = true;
-            console.log('Configurazione caricata:', config);
             renderCalendar();
             renderPersoneButtons();
         }
@@ -434,7 +433,7 @@ function validateForm() {
         document.getElementById('input-cognome').classList.add('error');
         valid = false;
     }
-    if (!email || !email.includes('@')) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('input-email').classList.add('error');
         valid = false;
     }
