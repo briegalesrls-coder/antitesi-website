@@ -487,7 +487,12 @@ async function confirmBooking() {
     };
 
     try {
-        const response = await fetch(`${API_BASE_URL}/dashboard/crea`, {
+        // 2026-06-06 F0 fix: il vecchio /dashboard/crea è gated da
+        // require_login (auth fix 056b1c9 / 1° giugno) → 401. Usiamo
+        // il nuovo endpoint pubblico /api/website/prenota che forza
+        // fonte='sito_web' lato server e riusa lo stesso path atomico
+        // di crea_prenotazione.
+        const response = await fetch(`${API_BASE_URL}/api/website/prenota`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
