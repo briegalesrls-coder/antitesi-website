@@ -11,3 +11,9 @@ assets/images/locale/11.jpg
 assets/images/locale/222.jpg
 assets/images/locale/locale---.jpg
 assets/images/locale/locale-11.jpg
+
+# Kit .claude/ resta LOCALE: questo repo e' PUBBLICO, niente know-how interno
+# (rules dei gate, hook, marker di bypass). install.sh lo rigenera quando serve.
+.claude/
+CLAUDE.md
+CLAUDE.local.md
